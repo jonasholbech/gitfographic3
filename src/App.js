@@ -8,6 +8,7 @@ import Test from "./components/Test";
 import SVG from "./components/svg/SVG";
 
 import "./App.scss";
+import "./scss/Overview.scss";
 
 function App() {
   const machineInstance = useMachine(flowMachine);

@@ -1,0 +1,53 @@
+@import "partials/vars";
+[data-parentstate="overviewScene"] {
+  #pushCommandFile1,
+  #pushCommandFile2 {
+    opacity: 0;
+    transform: translate(550px, -20px) scale($fileScale);
+  }
+  #pullCommandFile1,
+  #pullCommandFile2 {
+    opacity: 0;
+    transform: translate(800px, -20px) scale($fileScale);
+  }
+
+  &[data-substate="overviewScene.first"] {
+    .AnnotatedArrow,
+    .File {
+      opacity: 0;
+    }
+    .TextBox {
+      transform: translateY(-100vh);
+    }
+    .TextBox#workingcopy {
+      animation: moveDown $animationDuration forwards ease-out;
+    }
+    .TextBox#stagingarea {
+      animation: moveDown $animationDuration $staggerDelay forwards ease-out;
+    }
+    .TextBox#localrepository {
+      animation: moveDown $animationDuration $staggerDelay * 2 forwards ease-out;
+    }
+    .TextBox#remoterepository {
+      animation: moveDown $animationDuration $staggerDelay * 3 forwards ease-out;
+    }
+  }
+  &[data-substate="overviewScene.drawLocalBox"] {
+    .AnnotatedArrow,
+    .File {
+      opacity: 0;
+    }
+    #localDrawBox {
+      animation: draw 3s forwards;
+    }
+  }
+  &[data-substate="overviewScene.drawRemoteBox"] {
+    .AnnotatedArrow,
+    .File {
+      opacity: 0;
+    }
+    #remoteDrawBox {
+      animation: draw 3s forwards;
+    }
+  }
+}

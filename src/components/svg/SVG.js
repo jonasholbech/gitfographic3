@@ -11,8 +11,10 @@ import CommitsExplained from "./scenes/CommitsExplained";
 //context kan nu tilgås og sættes fra react, så store skal dø, og udskiftes med context
 export default function SVG({ children }) {
   const [machineState, send] = useContext(MachineContext);
-  console.log(machineState);
-  //document.body.dataset.state = machineState.value;
+  const [parent, substate] = machineState.toStrings();
+
+  document.body.dataset.parentstate = parent;
+  document.body.dataset.substate = substate || "";
 
   return (
     <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">

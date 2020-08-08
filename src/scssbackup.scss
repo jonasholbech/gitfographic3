@@ -2,6 +2,7 @@ $staggerDelay: 0.5s;
 $animationDuration: 0.5s;
 $fileScale: 0.4;
 $fileUsedColor: lightgrey;
+
 #root {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -12,6 +13,7 @@ svg {
   width: auto;
   margin: auto;
 }
+
 circle {
   fill: white;
   stroke: black;
@@ -163,25 +165,7 @@ body[data-state="addCommandMoveFile1"] svg {
     animation: moveFileToStagingArea $animationDuration forwards;
   }
 }
-/*
-body[data-state="addCommandMoveFile2"] svg {
-  .AnnotatedArrow#resetCommand1,
-  .AnnotatedArrow#commitCommand,
-  .AnnotatedArrow#pushCommand,
-  .AnnotatedArrow#pullCommand {
-    opacity: 0;
-  }
-  .File#addCommandFileLeftBehind3 path:first-child,
-  .File#addCommandFileLeftBehind2 path:first-child {
-    fill: $fileUsedColor;
-  }
-  .File#addCommandFile3 {
-    transform: translate(300px, -20px) scale($fileScale);
-  }
-  .File#addCommandFile2 {
-    animation: moveFileToStagingArea $animationDuration forwards;
-  }
-}*/
+
 body[data-state="addCommandMoveFile2and3"] svg {
   .AnnotatedArrow#resetCommand1,
   .AnnotatedArrow#commitCommand,
