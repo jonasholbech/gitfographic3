@@ -1,7 +1,6 @@
 import React from "react";
 import { useMachine } from "@xstate/react";
 
-import { StateProvider } from "./models/store.js";
 import { MachineProvider } from "./models/MachineProvider";
 import flowMachine from "./models/stateMachine";
 
@@ -14,12 +13,10 @@ function App() {
   const machineInstance = useMachine(flowMachine);
   return (
     <div className="App">
-      <StateProvider>
-        <MachineProvider machineInstance={machineInstance}>
-          <Test />
-          <SVG></SVG>
-        </MachineProvider>
-      </StateProvider>
+      <MachineProvider machineInstance={machineInstance}>
+        <Test />
+        <SVG></SVG>
+      </MachineProvider>
     </div>
   );
 }

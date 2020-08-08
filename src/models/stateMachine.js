@@ -7,6 +7,15 @@ const flowMachine = Machine(
   {
     id: "gitMachine",
     initial: initialState,
+    context: {
+      description: {
+        x: 200,
+        y: 200,
+        text: "",
+        typewriter: false,
+      },
+      commitListStep: -1,
+    },
     states: {
       loaded: {
         id: "loaded",
