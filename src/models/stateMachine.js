@@ -11,7 +11,6 @@ const flowMachine = Machine(
       description: {
         x: 200,
         y: 200,
-        text: "",
         typewriter: false,
       },
       commitListStep: -1,
@@ -217,6 +216,9 @@ const flowMachine = Machine(
       // action implementations
       addStartOfTurnUnitsTest: (context, event) => {
         //
+      },
+      assignText: (ctx, evt) => {
+        console.log(evt, ctx, this, flowMachine);
       },
     },
   }

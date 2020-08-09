@@ -11,7 +11,7 @@
     transform: translate(800px, -20px) scale($fileScale);
   }
 
-  &[data-substate="overviewScene.first"] {
+  &[data-substate="first"] {
     .AnnotatedArrow,
     .File {
       opacity: 0;
@@ -32,7 +32,7 @@
       animation: moveDown $animationDuration $staggerDelay * 3 forwards ease-out;
     }
   }
-  &[data-substate="overviewScene.drawLocalBox"] {
+  &[data-substate="drawLocalBox"] {
     .AnnotatedArrow,
     .File {
       opacity: 0;
@@ -41,7 +41,7 @@
       animation: draw 3s forwards;
     }
   }
-  &[data-substate="overviewScene.drawRemoteBox"] {
+  &[data-substate="drawRemoteBox"] {
     .AnnotatedArrow,
     .File {
       opacity: 0;
