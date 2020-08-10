@@ -11,11 +11,13 @@ export default function TypewriterDescription({
   let [currentText, setCurrentText] = useState("");
   let [delayCompleted, setDelayCompleted] = useState(false);
   let delay = 15;
+
   useEffect(() => {
     setTimeout(() => {
       setDelayCompleted(true);
     }, startDelay);
   }, [startDelay]);
+
   useInterval(() => {
     if (delayCompleted) {
       setCount(count + 1);

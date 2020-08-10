@@ -235,10 +235,6 @@ const flowMachine = Machine(
   },
   {
     actions: {
-      // action implementations
-      addStartOfTurnUnitsTest: (context, event) => {
-        //
-      },
       toggleTypewriter: assign({
         description: (ctx, evt) => {
           const description = { ...ctx.description };
