@@ -1,7 +1,8 @@
 import { Machine, assign } from "xstate";
 
 import { initialState } from "./config";
-
+//TODO: when switching scenes the text is misplaced, add initial setBox to all scenes
+//TODO: remove console errors from xstate, looks simple
 const flowMachine = Machine(
   {
     id: "gitMachine",
