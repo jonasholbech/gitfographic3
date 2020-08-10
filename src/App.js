@@ -9,6 +9,7 @@ import SVG from "./components/svg/SVG";
 
 import "./App.scss";
 import "./scss/Overview.scss";
+import "./scss/Gitignore.scss";
 
 function App() {
   const machineInstance = useMachine(flowMachine);

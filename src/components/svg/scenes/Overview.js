@@ -8,6 +8,7 @@ import DrawBox from "../DrawBox";
 
 export default function Overview() {
   const [machineState, send] = useContext(MachineContext);
+
   return (
     <g id="sceneOverview">
       <DrawBox id="localDrawBox" x={0} y={0} width={660} height={100} />

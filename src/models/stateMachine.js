@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Machine, send, interpret } from "xstate";
+import { Machine, send, interpret, assign } from "xstate";
 //import { store } from "./store.js";
 import { initialState } from "./config";
 
@@ -9,8 +9,8 @@ const flowMachine = Machine(
     initial: initialState,
     context: {
       description: {
-        x: 200,
-        y: 200,
+        x: 100,
+        y: 100,
         typewriter: false,
       },
       commitListStep: -1,
@@ -35,42 +35,50 @@ const flowMachine = Machine(
             },
           },
           drawLocalBox: {
+            entry: { type: "setBox", x: 100, y: 120 },
             on: {
               next: "drawRemoteBox",
               prev: "first",
             },
           },
           drawRemoteBox: {
+            entry: { type: "setBox", x: 750, y: 120 },
             on: {
               next: "workingArea",
               prev: "drawLocalBox",
             },
           },
+
           workingArea: {
+            entry: { type: "setBox", x: 200, y: 200 },
             on: {
               next: "stagingArea",
               prev: "drawRemoteBox",
             },
           },
           stagingArea: {
+            entry: { type: "setBox", x: 450, y: 200 },
             on: {
               next: "localRepository",
               prev: "workingArea",
             },
           },
           localRepository: {
+            entry: { type: "setBox", x: 140, y: 200 },
             on: {
               next: "remoteRepository",
               prev: "stagingArea",
             },
           },
           remoteRepository: {
+            entry: { type: "setBox", x: 450, y: 200 },
             on: {
               next: "addCommand",
               prev: "localRepository",
             },
           },
           addCommand: {
+            entry: { type: "setBox", x: 200, y: 100 },
             on: {
               next: "addCommandMoveFile1",
               prev: "remoteRepository",
@@ -96,21 +104,31 @@ const flowMachine = Machine(
             },
           },
           commitCommand: {
+            entry: { type: "setBox", x: 450, y: 100 },
             on: {
               next: "pushCommand",
               prev: "addCommandMoveFile3Back",
             },
           },
           pushCommand: {
+            entry: { type: "setBox", x: 650, y: 100 },
             on: {
               next: "pullCommand",
               prev: "commitCommand",
             },
           },
           pullCommand: {
+            entry: { type: "setBox", x: 450, y: 100 },
+            on: {
+              next: "takeAScreenshot",
+              prev: "pushCommand",
+            },
+          },
+          takeAScreenshot: {
+            entry: { type: "setBox", x: 300, y: 300 },
             on: {
               next: "#gitignoreScene",
-              prev: "pushCommand",
+              prev: "pullCommand",
             },
           },
         },
@@ -125,6 +143,7 @@ const flowMachine = Machine(
             },
           },
           gitIgnoreSceneSet: {
+            entry: { type: "setBox", x: 200, y: 0 },
             on: {
               next: "gitIgnoreSceneSet2",
               prev: "#overviewScene.pullCommand",
@@ -137,12 +156,15 @@ const flowMachine = Machine(
             },
           },
           gitIgnoreFile: {
+            entry: [{ type: "setBox", x: 435, y: 50 }, "toggleTypewriter"],
             on: {
               next: "gitIgnoreFileMovedBack",
               prev: "gitIgnoreSceneSet2",
             },
+            exit: "toggleTypewriter",
           },
           gitIgnoreFileMovedBack: {
+            entry: { type: "setBox", x: 200, y: 0 },
             on: {
               next: "#commitScene",
               prev: "gitIgnoreFile",
@@ -217,9 +239,21 @@ const flowMachine = Machine(
       addStartOfTurnUnitsTest: (context, event) => {
         //
       },
-      assignText: (ctx, evt) => {
-        console.log(evt, ctx, this, flowMachine);
-      },
+      toggleTypewriter: assign({
+        description: (ctx, evt) => {
+          const description = { ...ctx.description };
+          description.typewriter = !description.typewriter;
+          return description;
+        },
+      }),
+      setBox: assign({
+        description: (ctx, evt, { action }) => {
+          const description = { ...ctx.description };
+          description.x = action.x;
+          description.y = action.y;
+          return description;
+        },
+      }),
     },
   }
 );

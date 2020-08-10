@@ -50,4 +50,158 @@
       animation: draw 3s forwards;
     }
   }
+  &[data-substate="workingArea"] {
+    .AnnotatedArrow {
+      opacity: 0;
+    }
+    #workingAreaDrawBox {
+      animation: draw 3s forwards;
+    }
+  }
+  &[data-substate="stagingArea"] {
+    .AnnotatedArrow {
+      opacity: 0;
+    }
+    #stagingAreaDrawBox {
+      animation: draw 3s forwards;
+    }
+  }
+  &[data-substate="localRepository"] {
+    .AnnotatedArrow {
+      opacity: 0;
+    }
+    #localRepositoryDrawBox {
+      animation: draw 3s forwards;
+    }
+  }
+  &[data-substate="remoteRepository"] {
+    .AnnotatedArrow {
+      opacity: 0;
+    }
+    #remoteRepositoryDrawBox {
+      animation: draw 3s forwards;
+    }
+  }
+  &[data-substate="addCommand"] {
+    .AnnotatedArrow#resetCommand1,
+    .AnnotatedArrow#commitCommand,
+    .AnnotatedArrow#pushCommand,
+    .AnnotatedArrow#pullCommand {
+      opacity: 0;
+    }
+    .AnnotatedArrow#addCommand {
+      transition: all 1s;
+      opacity: 1;
+    }
+  }
+  &[data-substate="addCommandMoveFile1"] {
+    .AnnotatedArrow#resetCommand1,
+    .AnnotatedArrow#commitCommand,
+    .AnnotatedArrow#pushCommand,
+    .AnnotatedArrow#pullCommand {
+      opacity: 0;
+    }
+    .File#addCommandFileLeftBehind3 path:first-child {
+      fill: $fileUsedColor;
+    }
+    .File#addCommandFile3 {
+      animation: moveFileToStagingArea $animationDuration forwards;
+    }
+  }
+  &[data-substate="addCommandMoveFile2and3"] {
+    .AnnotatedArrow#resetCommand1,
+    .AnnotatedArrow#commitCommand,
+    .AnnotatedArrow#pushCommand,
+    .AnnotatedArrow#pullCommand {
+      opacity: 0;
+    }
+    .File#addCommandFileLeftBehind3 path:first-child,
+    .File#addCommandFileLeftBehind2 path:first-child,
+    .File#addCommandFileLeftBehind1 path:first-child {
+      fill: $fileUsedColor;
+    }
+    .File#addCommandFile3 {
+      transform: translate(300px, -20px) scale($fileScale);
+    }
+    .File#addCommandFile1,
+    .File#addCommandFile2 {
+      animation: moveFileToStagingArea $animationDuration forwards;
+    }
+  }
+  &[data-substate="addCommandMoveFile3Back"] {
+    .AnnotatedArrow#commitCommand,
+    .AnnotatedArrow#pushCommand,
+    .AnnotatedArrow#pullCommand {
+      opacity: 0;
+    }
+    .File#addCommandFileLeftBehind3 path:first-child,
+    .File#addCommandFileLeftBehind2 path:first-child {
+      fill: $fileUsedColor;
+    }
+    .File#addCommandFile3,
+    .File#addCommandFile2,
+    .File#addCommandFile1 {
+      transform: translate(300px, -20px) scale($fileScale);
+    }
+    .File#addCommandFile1 {
+      animation: moveFileFromStagingArea $animationDuration forwards;
+    }
+  }
+  &[data-substate="commitCommand"] {
+    .AnnotatedArrow#pushCommand,
+    .AnnotatedArrow#pullCommand {
+      opacity: 0;
+    }
+    .File#addCommandFileLeftBehind3 path:first-child,
+    .File#addCommandFileLeftBehind2 path:first-child {
+      transition: all 1s 1s;
+      fill: white;
+    }
+    .File#addCommandFile3,
+    .File#addCommandFile2 {
+      transition: all $animationDuration * 3;
+      transform: translate(550px, -20px) scale($fileScale);
+    }
+  }
+  &[data-substate="pushCommand"] {
+    .AnnotatedArrow#pullCommand {
+      opacity: 0;
+    }
+    .File#addCommandFile3,
+    .File#addCommandFile2 {
+      transform: translate(550px, -20px) scale(0.4);
+    }
+    .File#pushCommandFile1,
+    .File#pushCommandFile2 {
+      opacity: 1;
+      transition: transform 1s 1s;
+      transform: translate(800px, -20px) scale(0.4);
+    }
+  }
+  &[data-substate="pullCommand"] {
+    .File#addCommandFile3,
+    .File#addCommandFile2 {
+      transform: translate(550px, -20px) scale(0.4);
+      transition: all 1s;
+    }
+    .File#pushCommandFile1,
+    .File#pushCommandFile2 {
+      opacity: 1;
+      transform: translate(800px, -20px) scale(0.4);
+    }
+    .File#addCommandFile3,
+    .File#addCommandFile2 {
+      transform: translate(550px, -20px) scale(0);
+    }
+    .File#pushCommandFile1,
+    .File#pushCommandFile2 {
+      opacity: 1;
+      transition: all 1s 1s;
+      transform: translate(550px, -20px) scale(0.4);
+    }
+    #pullCommandFile1,
+    #pullCommandFile2 {
+      opacity: 1;
+    }
+  }
 }

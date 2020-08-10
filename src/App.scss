@@ -25,6 +25,31 @@ svg {
     stroke-dashoffset: 0;
   }
 }
+@keyframes moveFileToStagingArea {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(300px, -20px) scale(0.4);
+  }
+}
+@keyframes moveFileFromStagingArea {
+  to {
+    transform: translate(0, 0) scale(1);
+  }
+}
+@keyframes switchToBigFile {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(3.4) translate(100px, -80px);
+  }
+}
+/*
+#Description {
+  transition: all 2s;
+}*/
 /*
 circle {
   fill: white;
@@ -59,220 +84,18 @@ button {
 }
 
 
-body[data-state="loaded"] {
-  .TextBox,
-  .AnnotatedArrow,
-  .File {
-    opacity: 0;
-  }
-}
 
 
 
-body[data-state="workingArea"] svg {
-  .AnnotatedArrow {
-    opacity: 0;
-  }
-  #workingAreaDrawBox {
-    animation: draw 3s forwards;
-  }
-}
-body[data-state="stagingArea"] svg {
-  .AnnotatedArrow {
-    opacity: 0;
-  }
-  #stagingAreaDrawBox {
-    animation: draw 3s forwards;
-  }
-}
-body[data-state="localRepository"] svg {
-  .AnnotatedArrow {
-    opacity: 0;
-  }
-  #localRepositoryDrawBox {
-    animation: draw 3s forwards;
-  }
-}
-body[data-state="remoteRepository"] svg {
-  .AnnotatedArrow {
-    opacity: 0;
-  }
-  #remoteRepositoryDrawBox {
-    animation: draw 3s forwards;
-  }
-}
-body[data-state="addCommand"] svg {
-  .AnnotatedArrow#resetCommand1,
-  .AnnotatedArrow#commitCommand,
-  .AnnotatedArrow#pushCommand,
-  .AnnotatedArrow#pullCommand {
-    opacity: 0;
-  }
-  .AnnotatedArrow#addCommand {
-    transition: all 1s;
-    opacity: 1;
-  }
-}
-body[data-state="addCommandMoveFile1"] svg {
-  .AnnotatedArrow#resetCommand1,
-  .AnnotatedArrow#commitCommand,
-  .AnnotatedArrow#pushCommand,
-  .AnnotatedArrow#pullCommand {
-    opacity: 0;
-  }
-  .File#addCommandFileLeftBehind3 path:first-child {
-    fill: $fileUsedColor;
-  }
-  .File#addCommandFile3 {
-    animation: moveFileToStagingArea $animationDuration forwards;
-  }
-}
 
-body[data-state="addCommandMoveFile2and3"] svg {
-  .AnnotatedArrow#resetCommand1,
-  .AnnotatedArrow#commitCommand,
-  .AnnotatedArrow#pushCommand,
-  .AnnotatedArrow#pullCommand {
-    opacity: 0;
-  }
-  .File#addCommandFileLeftBehind3 path:first-child,
-  .File#addCommandFileLeftBehind2 path:first-child,
-  .File#addCommandFileLeftBehind1 path:first-child {
-    fill: $fileUsedColor;
-  }
-  .File#addCommandFile3 {
-    transform: translate(300px, -20px) scale($fileScale);
-  }
-  .File#addCommandFile1,
-  .File#addCommandFile2 {
-    animation: moveFileToStagingArea $animationDuration forwards;
-  }
-}
-body[data-state="addCommandMoveFile3Back"] svg {
-  .AnnotatedArrow#commitCommand,
-  .AnnotatedArrow#pushCommand,
-  .AnnotatedArrow#pullCommand {
-    opacity: 0;
-  }
-  .File#addCommandFileLeftBehind3 path:first-child,
-  .File#addCommandFileLeftBehind2 path:first-child {
-    fill: $fileUsedColor;
-  }
-  .File#addCommandFile3,
-  .File#addCommandFile2,
-  .File#addCommandFile1 {
-    transform: translate(300px, -20px) scale($fileScale);
-  }
-  .File#addCommandFile1 {
-    animation: moveFileFromStagingArea $animationDuration forwards;
-  }
-}
-body[data-state="commitCommand"] svg {
-  .AnnotatedArrow#pushCommand,
-  .AnnotatedArrow#pullCommand {
-    opacity: 0;
-  }
-  .File#addCommandFileLeftBehind3 path:first-child,
-  .File#addCommandFileLeftBehind2 path:first-child {
-    transition: all 1s 1s;
-    fill: white;
-  }
-  .File#addCommandFile3,
-  .File#addCommandFile2 {
-    transition: all $animationDuration * 3;
-    transform: translate(550px, -20px) scale($fileScale);
-  }
-}
-body[data-state="pushCommand"] svg {
-  .AnnotatedArrow#pullCommand {
-    opacity: 0;
-  }
-  .File#addCommandFile3,
-  .File#addCommandFile2 {
-    transform: translate(550px, -20px) scale(0.4);
-  }
-  .File#pushCommandFile1,
-  .File#pushCommandFile2 {
-    opacity: 1;
-    transition: transform 1s 1s;
-    transform: translate(800px, -20px) scale(0.4);
-  }
-}
-body[data-state="pullCommand"] svg {
-  .File#addCommandFile3,
-  .File#addCommandFile2 {
-    transform: translate(550px, -20px) scale(0.4);
-    transition: all 1s;
-  }
-  .File#pushCommandFile1,
-  .File#pushCommandFile2 {
-    opacity: 1;
-    transform: translate(800px, -20px) scale(0.4);
-  }
-  .File#addCommandFile3,
-  .File#addCommandFile2 {
-    transform: translate(550px, -20px) scale(0);
-  }
-  .File#pushCommandFile1,
-  .File#pushCommandFile2 {
-    opacity: 1;
-    transition: all 1s 1s;
-    transform: translate(550px, -20px) scale(0.4);
-  }
-  #pullCommandFile1,
-  #pullCommandFile2 {
-    opacity: 1;
-  }
-}
-body[data-state="gitIgnoreSceneSet"] svg {
-  #sceneOverview {
-    transition: all 1s;
-    transform-origin: 50% 50%;
-    transform: scale(0);
-  }
-  #gitignoreFileSmall {
-    opacity: 0;
-  }
-  #sceneGitignore {
-    opacity: 1;
-  }
-}
-body[data-state="gitIgnoreSceneSet2"] svg {
-  #sceneOverview {
-    transform: scale(0);
-  }
-  #sceneGitignore {
-    opacity: 1;
-  }
-}
-body[data-state="gitIgnoreFile"] svg {
-  #sceneOverview {
-    transform: scale(0);
-  }
-  #sceneGitignore {
-    opacity: 1;
-  }
-  #gitignoreFileSmall {
-    transform-origin: 0 0;
-    animation: switchToBigFile 2s forwards;
-  }
-  #gitignoreFileSmall g g path + * {
-    opacity: 0;
-  }
-}
-body[data-state="gitIgnoreFileMovedBack"] svg {
-  #sceneOverview {
-    transform: scale(0);
-  }
-  #sceneGitignore {
-    opacity: 1;
-  }
-  #gitignoreFileSmall {
-    transition: all 1s;
-    transform: scale(1) translate(0, 0);
-    //animation: switchToBigFile 1s forwards reverse;
-  }
-}
+
+
+
+
+
+
+
+
 body[data-state="beforeCommits"] svg {
   #sceneOverview,
   #sceneGitignore,
@@ -293,27 +116,9 @@ body[data-state^="commits"] svg {
     opacity: 1;
   }
 }
-@keyframes switchToBigFile {
-  0% {
-    transform: scale(1) translate(0, 0);
-  }
-  100% {
-    transform: scale(3) translate(100px, -80px);
-  }
-}
-@keyframes moveFileFromStagingArea {
-  to {
-    transform: translate(0, 0) scale(1);
-  }
-}
-@keyframes moveFileToStagingArea {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  100% {
-    transform: translate(300px, -20px) scale(0.4);
-  }
-}
+
+
+
 
 
 */

@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { useSpring, animated } from "react-spring";
 
 export default function Description({ x, y, text }) {
+  const spring = useSpring({
+    from: {
+      transform: `translate(100px, 100px)`,
+    },
+    to: {
+      transform: `translate(${x}px, ${y}px)`,
+    },
+    config: {
+      duration: 200,
+    },
+  });
+
   if (!text) {
-    return <g transform={`translate(${x} ${y})`}></g>;
+    return <g id="Description" style={spring}></g>;
   }
+
   return (
-    <g id="Description" transform={`translate(${x} ${y})`}>
-      <text x={x} y={y}>
+    <animated.g id="Description" style={spring}>
+      <text x={0} y={0}>
         {text.split("\n").map((t, i) => {
           return (
             <tspan key={i} x={0} dy="1.2em">
@@ -15,6 +30,6 @@ export default function Description({ x, y, text }) {
           );
         })}
       </text>
-    </g>
+    </animated.g>
   );
 }

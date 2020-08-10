@@ -1,0 +1,26 @@
+@import "partials/vars";
+[data-parentstate="gitignoreScene"] {
+  &[data-substate="gitIgnoreSceneSet"] {
+    #gitignoreFileSmall {
+      opacity: 0;
+    }
+  }
+  &[data-substate="gitIgnoreSceneSet2"] {
+  }
+  &[data-substate="gitIgnoreFile"] {
+    #gitignoreFileSmall {
+      transform-origin: 0 0;
+      animation: switchToBigFile 1.5s forwards;
+    }
+    #gitignoreFileSmall g g path + * {
+      opacity: 0;
+    }
+  }
+  &[data-substate="gitIgnoreFileMovedBack"] {
+    #gitignoreFileSmall {
+      transition: all 1s;
+      transform: scale(1) translate(0, 0);
+      //animation: switchToBigFile 1s forwards reverse;
+    }
+  }
+}
