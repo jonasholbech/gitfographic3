@@ -31,6 +31,13 @@ export default function TypewriterDescription({
     return <g transform={`translate(${x} ${y})`}></g>;
   }
   //TODO: use Description as a child component
+  //TODO: spring can animate text
+  /*
+  const props = useSpring({ number: 1, from: { number: 0 } })
+return <animated.span>{props.number}</animated.span>
+  */
+  //TODO: noget helt andet, skal lege med den her
+  //https://codesandbox.io/embed/lwpkp46om
   return (
     <g id="TypewriterDescription" transform={`translate(${x} ${y})`}>
       <text x={x} y={y}>

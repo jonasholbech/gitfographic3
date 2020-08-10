@@ -18,7 +18,8 @@ export default function Description({ x, y, text }) {
   if (!text) {
     return <g id="Description" style={spring}></g>;
   }
-
+  //TODO: same animation on typewriter?
+  //Remember it as animated, but did delete some transition stuff
   return (
     <animated.g id="Description" style={spring}>
       <text x={0} y={0}>
