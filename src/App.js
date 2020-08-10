@@ -5,6 +5,7 @@ import { MachineProvider } from "./models/MachineProvider";
 import flowMachine from "./models/stateMachine";
 
 import Test from "./components/Test";
+import Nav from "./components/Nav";
 import SVG from "./components/svg/SVG";
 
 import "./App.scss";

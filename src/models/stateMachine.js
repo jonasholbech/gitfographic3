@@ -24,6 +24,11 @@ const flowMachine = Machine(
       overviewScene: {
         id: "overviewScene",
         initial: "first",
+        on: {
+          overviewScene: "overviewScene",
+          gitignoreScene: "gitignoreScene",
+          commitScene: "commitScene",
+        },
         states: {
           first: {
             on: {
@@ -136,6 +141,11 @@ const flowMachine = Machine(
       gitignoreScene: {
         initial: "opening",
         id: "gitignoreScene",
+        on: {
+          overviewScene: "overviewScene",
+          gitignoreScene: "gitignoreScene",
+          commitScene: "commitScene",
+        },
         states: {
           opening: {
             on: {
@@ -175,6 +185,11 @@ const flowMachine = Machine(
       commitScene: {
         id: "commitScene",
         initial: "opening",
+        on: {
+          overviewScene: "overviewScene",
+          gitignoreScene: "gitignoreScene",
+          commitScene: "commitScene",
+        },
         states: {
           opening: {
             on: {
