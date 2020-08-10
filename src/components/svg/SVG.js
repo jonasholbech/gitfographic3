@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { MachineContext } from "../../models/MachineProvider";
 
 import descriptions from "../../models/descriptions";
@@ -10,20 +10,17 @@ import Gitignore from "./scenes/Gitignore";
 import CommitsExplained from "./scenes/CommitsExplained";
 //context kan nu tilgås og sættes fra react, så store skal dø, og udskiftes med context
 export default function SVG({ children }) {
-  const [machineState, send, stuff] = useContext(MachineContext);
-  /*const [text, setText] = useState(
-    descriptions.states[descriptions.initial].desc
-  );*/
+  const [machineState] = useContext(MachineContext);
 
   const [parent, child] = machineState.toStrings();
   const substate = (child && child.split(".")[1]) || "";
-  //console.log(parent, substate, child);
+
   document.body.dataset.parentstate = parent;
   document.body.dataset.substate = substate || "";
   const text =
     descriptions.states[parent]?.[substate]?.desc ||
     descriptions.states[parent].desc;
-  console.log(text);
+
   return (
     <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
       <Defs />

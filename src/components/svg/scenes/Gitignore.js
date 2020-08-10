@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
-import { MachineContext } from "../../../models/MachineProvider";
+import React from "react";
 
 import TextBox from "../TextBox";
 
 import File from "../File";
 
 export default function Gitignore() {
-  const [machineState, send] = useContext(MachineContext);
   return (
     <g id="sceneGitignore">
       <TextBox

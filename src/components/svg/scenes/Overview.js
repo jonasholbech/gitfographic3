@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { MachineContext } from "../../../models/MachineProvider";
+import React from "react";
 
 import TextBox from "../TextBox";
 import AnnotatedArrow from "../AnnotatedArrow";
@@ -7,8 +6,6 @@ import File from "../File";
 import DrawBox from "../DrawBox";
 
 export default function Overview() {
-  const [machineState, send] = useContext(MachineContext);
-
   return (
     <g id="sceneOverview">
       <DrawBox id="localDrawBox" x={0} y={0} width={660} height={100} />

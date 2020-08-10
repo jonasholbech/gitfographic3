@@ -3,7 +3,6 @@ import { MachineContext } from "../models/MachineProvider";
 
 export default function Nav(props) {
   const [state, send] = useContext(MachineContext);
-  console.log(state);
   return (
     <nav>
       <button

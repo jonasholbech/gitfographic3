@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
-import { Machine, send, interpret, assign } from "xstate";
-//import { store } from "./store.js";
+import { Machine, assign } from "xstate";
+
 import { initialState } from "./config";
 
 const flowMachine = Machine(
