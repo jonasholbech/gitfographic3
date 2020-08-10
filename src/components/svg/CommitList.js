@@ -22,5 +22,6 @@ export default function CommitList({ x, y, step }) {
       <circle cx={100} cy={0} r={10} className={step > 1 ? "drawCircle" : ""} />
       <circle cx={200} cy={0} r={10} className={step > 3 ? "drawCircle" : ""} />
     </g>
+    //step 6 ligger i css'en
   );
 }

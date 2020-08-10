@@ -1,1 +1,1 @@
-export const initialState = "gitignoreScene";
+export const initialState = "commitScene";

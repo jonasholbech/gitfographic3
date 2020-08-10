@@ -1,0 +1,34 @@
+@import "partials/vars";
+[data-parentstate="commitScene"] {
+  circle {
+    fill: white;
+    stroke: black;
+    transform: scale(0);
+  }
+  line {
+    stroke: black;
+    stroke-dasharray: 100px;
+    stroke-dashoffset: 100px;
+  }
+  .stroke0 {
+    transition: all 1s;
+    stroke-dashoffset: 0;
+  }
+  .drawCircle {
+    transition: all 1s;
+    transform: scale(1);
+  }
+  &[data-substate="beforeCommits"] {
+    #CommitList {
+      opacity: 0;
+    }
+  }
+  &[data-substate="commits6"],
+  &[data-substate="commits7"] {
+    line:last-of-type,
+    circle:last-of-type {
+      transition: all 1s;
+      opacity: 0;
+    }
+  }
+}

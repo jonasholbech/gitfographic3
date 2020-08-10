@@ -46,79 +46,14 @@ svg {
     transform: scale(3.4) translate(100px, -80px);
   }
 }
+
 /*
-#Description {
-  transition: all 2s;
-}*/
-/*
-circle {
-  fill: white;
-  stroke: black;
-  transform: scale(0);
-}
-line {
-  stroke: black;
-  //stroke-dasharray: 100px;
-  //stroke-dashoffset: 100px;
-}
-.stroke0 {
-  transition: all 1s;
-  stroke-dashoffset: 0;
-}
-.drawCircle {
-  transition: all 1s;
-  transform: scale(1);
-}
+
 button {
   height: 100px;
   margin: 20px;
   font-size: 2rem;
 }
-
-#Description {
-  transition: all 1s;
-}
-#sceneGitignore,
-#sceneCommitsExplained {
-  opacity: 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-body[data-state="beforeCommits"] svg {
-  #sceneOverview,
-  #sceneGitignore,
-  #CommitList {
-    opacity: 0;
-  }
-  #sceneCommitsExplained {
-    opacity: 1;
-  }
-}
-body[data-state^="commits"] svg {
-  //NOTE: ^
-  #sceneOverview,
-  #sceneGitignore {
-    opacity: 0;
-  }
-  #sceneCommitsExplained {
-    opacity: 1;
-  }
-}
-
-
-
 
 
 */

@@ -182,51 +182,99 @@ const flowMachine = Machine(
             },
           },
           beforeCommits: {
+            entry: { type: "setBox", x: 50, y: 50 },
             on: {
-              next: "commits1",
-              prev: "#gitignoreScene.gitIgnoreFileMovedBack",
+              next: {
+                target: "commits1",
+                actions: "countUp",
+              },
+              prev: {
+                target: "#gitignoreScene.gitIgnoreFileMovedBack",
+                actions: "countDown",
+              },
             },
           },
           commits1: {
+            entry: { type: "setBox", x: 50, y: 120 },
             on: {
-              next: "commits2",
-              prev: "beforeCommits",
+              next: {
+                target: "commits2",
+                actions: "countUp",
+              },
+              prev: {
+                target: "beforeCommits",
+                actions: "countDown",
+              },
             },
           },
           commits2: {
             on: {
-              next: "commits3",
-              prev: "commits1",
+              next: {
+                target: "commits3",
+                actions: "countUp",
+              },
+              prev: {
+                target: "commits1",
+                actions: "countDown",
+              },
             },
           },
           commits3: {
             on: {
-              next: "commits4",
-              prev: "commits2",
+              next: {
+                target: "commits4",
+                actions: "countUp",
+              },
+              prev: {
+                target: "commits2",
+                actions: "countDown",
+              },
             },
           },
           commits4: {
             on: {
-              next: "commits5",
-              prev: "commits3",
+              next: {
+                target: "commits5",
+                actions: "countUp",
+              },
+              prev: {
+                target: "commits3",
+                actions: "countDown",
+              },
             },
           },
           commits5: {
             on: {
-              next: "commits6",
-              prev: "commits4",
+              next: {
+                target: "commits6",
+                actions: "countUp",
+              },
+              prev: {
+                target: "commits4",
+                actions: "countDown",
+              },
             },
           },
           commits6: {
+            entry: { type: "setBox", x: 50, y: 120 },
             on: {
-              next: "commits7",
-              prev: "commits5",
+              next: {
+                target: "commits7",
+                actions: "countUp",
+              },
+              prev: {
+                target: "commits5",
+                actions: "countDown",
+              },
             },
           },
           commits7: {
             on: {
               next: "",
-              prev: "commits6",
+              prev: {
+                target: "commits6",
+                actions: "countDown",
+              },
             },
           },
         },
@@ -248,6 +296,16 @@ const flowMachine = Machine(
           description.x = action.x;
           description.y = action.y;
           return description;
+        },
+      }),
+      countUp: assign({
+        commitListStep: (ctx, evt) => {
+          return ctx.commitListStep + 1;
+        },
+      }),
+      countDown: assign({
+        commitListStep: (ctx, evt) => {
+          return ctx.commitListStep - 1;
         },
       }),
     },

@@ -10,6 +10,7 @@ import SVG from "./components/svg/SVG";
 import "./App.scss";
 import "./scss/Overview.scss";
 import "./scss/Gitignore.scss";
+import "./scss/Commits.scss";
 
 function App() {
   const machineInstance = useMachine(flowMachine);
@@ -17,6 +18,7 @@ function App() {
     <div className="App">
       <MachineProvider machineInstance={machineInstance}>
         <Test />
+        <Nav />
         <SVG></SVG>
       </MachineProvider>
     </div>
