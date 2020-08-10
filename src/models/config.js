@@ -1,1 +1,1 @@
-export const initialState = "commitScene";
+export const initialState = "loaded";

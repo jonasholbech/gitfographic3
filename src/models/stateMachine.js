@@ -13,12 +13,22 @@ const flowMachine = Machine(
         y: 100,
         typewriter: false,
       },
+      unlocks: {
+        overviewScene: false,
+        gitignoreScene: false,
+        commitScene: false,
+      },
       commitListStep: -1,
     },
     states: {
       loaded: {
         id: "loaded",
-        on: { next: "overviewScene" },
+        on: {
+          next: {
+            target: "overviewScene",
+            actions: { type: "unlockScene", scene: "overviewScene" },
+          },
+        },
       },
       //scenes
       overviewScene: {
@@ -33,10 +43,6 @@ const flowMachine = Machine(
           first: {
             on: {
               next: "drawLocalBox",
-              prev: {
-                actions: ["placeholder"],
-                target: "#loaded",
-              },
             },
           },
           drawLocalBox: {
@@ -132,7 +138,10 @@ const flowMachine = Machine(
           takeAScreenshot: {
             entry: { type: "setBox", x: 300, y: 300 },
             on: {
-              next: "#gitignoreScene",
+              next: {
+                target: "#gitignoreScene",
+                actions: { type: "unlockScene", scene: "gitignoreScene" },
+              },
               prev: "pullCommand",
             },
           },
@@ -176,7 +185,10 @@ const flowMachine = Machine(
           gitIgnoreFileMovedBack: {
             entry: { type: "setBox", x: 200, y: 0 },
             on: {
-              next: "#commitScene",
+              next: {
+                target: "#commitScene",
+                actions: { type: "unlockScene", scene: "overviewScene" },
+              },
               prev: "gitIgnoreFile",
             },
           },
@@ -285,7 +297,10 @@ const flowMachine = Machine(
           },
           commits7: {
             on: {
-              next: "",
+              next: {
+                target: "",
+                actions: { type: "unlockScene", scene: "commitScene" },
+              },
               prev: {
                 target: "commits6",
                 actions: "countDown",
@@ -321,6 +336,13 @@ const flowMachine = Machine(
       countDown: assign({
         commitListStep: (ctx, evt) => {
           return ctx.commitListStep - 1;
+        },
+      }),
+      unlockScene: assign({
+        unlocks: (ctx, evt, { action }) => {
+          const unlocks = { ...ctx.unlocks };
+          unlocks[action.scene] = true;
+          return unlocks;
         },
       }),
     },
