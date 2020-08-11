@@ -27,6 +27,7 @@ const flowMachine = Machine(
         branchScene: true,
       },
       commitListStep: -1,
+      branchOverlayStep: -1000,
     },
     states: {
       loaded: {
@@ -201,6 +202,7 @@ const flowMachine = Machine(
         on: topBranchTransitions,
         states: {
           opening: {
+            entry: ["resetCount"],
             on: {
               "": "beforeCommits",
             },
@@ -312,6 +314,14 @@ const flowMachine = Machine(
         on: topBranchTransitions,
         states: {
           opening: {
+            entry: ["resetBranchOverlay", { type: "setBox", x: 100, y: 250 }],
+            on: {
+              next: { target: "master", actions: "countUp" },
+              prev: "#commitScene.commits7", //TODO: set commitCount corretly
+            },
+          },
+          master: {
+            entry: [{ type: "setBranchOverlay", x: 145 }],
             on: {
               next: "",
             },
@@ -345,6 +355,21 @@ const flowMachine = Machine(
       countDown: assign({
         commitListStep: (ctx, evt) => {
           return ctx.commitListStep - 1;
+        },
+      }),
+      resetCount: assign({
+        commitListStep: (ctx, evt) => {
+          return -1;
+        },
+      }),
+      resetBranchOverlay: assign({
+        branchOverlay: (ctx, evt) => {
+          return 0;
+        },
+      }),
+      setBranchOverlay: assign({
+        branchOverlayStep: (ctx, evt, { action }) => {
+          return action.x;
         },
       }),
       unlockScene: assign({

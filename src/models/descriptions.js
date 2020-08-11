@@ -158,6 +158,10 @@ This provides us with a lot of benefits:
 - If a timeline fails, we can just go back, ignoring that timeline
 - We can "merge" two timelines, combining the work of developer A & B`,
       },
+      master: {
+        desc: `Our initial branch is called "master"
+(although it will at some point be renamed to main or similar)`,
+      },
     },
   },
 };

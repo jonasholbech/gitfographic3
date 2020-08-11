@@ -1,1 +1,1 @@
-export const initialState = "loaded";
+export const initialState = "branchScene";
