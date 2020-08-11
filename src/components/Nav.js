@@ -35,7 +35,15 @@ export default function Nav(props) {
             disabled={!state.context.unlocks.commitScene}
             onClick={() => send("commitScene")}
           >
-            {state.context.unlocks.commitScene ? ".Commits" : "Locked"}
+            {state.context.unlocks.commitScene ? "Commits" : "Locked"}
+          </button>
+        </li>
+        <li>
+          <button
+            disabled={!state.context.unlocks.branchScene}
+            onClick={() => send("branchScene")}
+          >
+            {state.context.unlocks.branchScene ? "Branches" : "Locked"}
           </button>
         </li>
       </ol>

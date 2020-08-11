@@ -147,6 +147,18 @@ Usually GitHub`,
         desc: `ready to dive a bit deeper? Take a break, I'm not going anywhere!`,
       },
     },
+    branchScene: {
+      opening: {
+        desc: `Branches allows us to make multiple timelines
+(those things with the commits)
+ 
+
+This provides us with a lot of benefits:
+- When working together we can have our own timelines (no overwriting each other)
+- If a timeline fails, we can just go back, ignoring that timeline
+- We can "merge" two timelines, combining the work of developer A & B`,
+      },
+    },
   },
 };
 export default descriptions;

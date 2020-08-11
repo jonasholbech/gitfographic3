@@ -60,6 +60,7 @@ svg {
   position: absolute;
   transform: translateY(-200px);
   transition: all 0.2s ease-out;
+  z-index: 100;
 }
 .open .levels {
   transform: translateY(0);

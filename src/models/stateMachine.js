@@ -3,6 +3,13 @@ import { Machine, assign } from "xstate";
 import { initialState } from "./config";
 //TODO: when switching scenes the text is misplaced, add initial setBox to all scenes
 //TODO: remove console errors from xstate, looks simple
+//TODO: error on invalid transition
+const topBranchTransitions = {
+  overviewScene: "overviewScene",
+  gitignoreScene: "gitignoreScene",
+  commitScene: "commitScene",
+  branchScene: "branchScene",
+};
 const flowMachine = Machine(
   {
     id: "gitMachine",
@@ -29,17 +36,14 @@ const flowMachine = Machine(
             target: "overviewScene",
             actions: { type: "unlockScene", scene: "overviewScene" },
           },
+          ...topBranchTransitions,
         },
       },
       //scenes
       overviewScene: {
         id: "overviewScene",
         initial: "first",
-        on: {
-          overviewScene: "overviewScene",
-          gitignoreScene: "gitignoreScene",
-          commitScene: "commitScene",
-        },
+        on: topBranchTransitions,
         states: {
           first: {
             on: {
@@ -151,11 +155,7 @@ const flowMachine = Machine(
       gitignoreScene: {
         initial: "opening",
         id: "gitignoreScene",
-        on: {
-          overviewScene: "overviewScene",
-          gitignoreScene: "gitignoreScene",
-          commitScene: "commitScene",
-        },
+        on: topBranchTransitions,
         states: {
           opening: {
             on: {
@@ -198,11 +198,7 @@ const flowMachine = Machine(
       commitScene: {
         id: "commitScene",
         initial: "opening",
-        on: {
-          overviewScene: "overviewScene",
-          gitignoreScene: "gitignoreScene",
-          commitScene: "commitScene",
-        },
+        on: topBranchTransitions,
         states: {
           opening: {
             on: {
@@ -299,13 +295,25 @@ const flowMachine = Machine(
           commits7: {
             on: {
               next: {
-                target: "",
+                target: "#branchScene",
                 actions: { type: "unlockScene", scene: "commitScene" },
               },
               prev: {
                 target: "commits6",
                 actions: "countDown",
               },
+            },
+          },
+        },
+      },
+      branchScene: {
+        id: "branchScene",
+        initial: "opening",
+        on: topBranchTransitions,
+        states: {
+          opening: {
+            on: {
+              next: "",
             },
           },
         },
