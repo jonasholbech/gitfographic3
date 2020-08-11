@@ -14,9 +14,10 @@ const flowMachine = Machine(
         typewriter: false,
       },
       unlocks: {
-        overviewScene: false,
-        gitignoreScene: false,
-        commitScene: false,
+        overviewScene: true,
+        gitignoreScene: true,
+        commitScene: true,
+        branchScene: true,
       },
       commitListStep: -1,
     },
