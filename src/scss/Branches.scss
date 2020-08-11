@@ -1,32 +1,35 @@
 @import "partials/vars";
 [data-parentstate="branchScene"] {
-  text.tilted {
-    transform: rotate(45deg);
-  }
   circle {
     fill: white;
     stroke: black;
-    // transform: scale(0);
   }
   line {
     stroke: black;
-    //  stroke-dasharray: 100px;
-    //  stroke-dashoffset: 100px;
   }
-  .stroke0 {
-    transition: all 1s;
-    //  stroke-dashoffset: 0;
-  }
+
   .drawCircle {
     transition: all 1s;
     transform: scale(1);
   }
-  &[data-substate="opening"] {
-    #BranchList {
-      //opacity: 0;
-    }
-  }
+
   #branchOverlay {
     transition: all 2s;
+  }
+  //hide lines not completely covered by overlay
+  &[data-substate="master"] {
+    line[x1="125"] {
+      opacity: 0;
+    }
+  }
+  &[data-substate="feature1"] {
+    line[x1="225"] {
+      opacity: 0;
+    }
+  }
+  &[data-substate="feature1MergeToMaster"] {
+    line[x1="275"] {
+      opacity: 0;
+    }
   }
 }

@@ -27,7 +27,7 @@ const flowMachine = Machine(
         branchScene: true,
       },
       commitListStep: -1,
-      branchOverlayStep: -1000,
+      branchOverlayStep: 1,
     },
     states: {
       loaded: {
@@ -316,14 +316,56 @@ const flowMachine = Machine(
           opening: {
             entry: ["resetBranchOverlay", { type: "setBox", x: 100, y: 250 }],
             on: {
-              next: { target: "master", actions: "countUp" },
+              next: { target: "master", actions: "incrementBranchOverlay" },
               prev: "#commitScene.commits7", //TODO: set commitCount corretly
             },
           },
           master: {
-            entry: [{ type: "setBranchOverlay", x: 145 }],
             on: {
-              next: "",
+              next: {
+                target: "branchToFeature1",
+                actions: "incrementBranchOverlay",
+              },
+              prev: "opening",
+            },
+          },
+          branchToFeature1: {
+            on: {
+              next: { target: "feature1", actions: "incrementBranchOverlay" },
+              prev: { target: "master", actions: "decrementBranchOverlay" },
+            },
+          },
+          feature1: {
+            on: {
+              next: {
+                target: "feature1MergeToMaster",
+                actions: "incrementBranchOverlay",
+              },
+              prev: {
+                target: "branchToFeature1",
+                actions: "decrementBranchOverlay",
+              },
+            },
+          },
+          feature1MergeToMaster: {
+            on: {
+              next: {
+                target: "branchToFeature2Cards",
+                actions: "incrementBranchOverlay",
+              },
+              prev: {
+                target: "feature1",
+                actions: "decrementBranchOverlay",
+              },
+            },
+          },
+          branchToFeature2Cards: {
+            on: {
+              next: { target: "", actions: "incrementBranchOverlay" },
+              prev: {
+                target: "feature1MergeToMaster",
+                actions: "decrementBranchOverlay",
+              },
             },
           },
         },
@@ -363,8 +405,18 @@ const flowMachine = Machine(
         },
       }),
       resetBranchOverlay: assign({
-        branchOverlay: (ctx, evt) => {
-          return 0;
+        branchOverlayStep: (ctx, evt) => {
+          return -1;
+        },
+      }),
+      incrementBranchOverlay: assign({
+        branchOverlayStep: (ctx, evt) => {
+          return ctx.branchOverlayStep + 1;
+        },
+      }),
+      decrementBranchOverlay: assign({
+        branchOverlayStep: (ctx, evt) => {
+          return ctx.branchOverlayStep - 1;
         },
       }),
       setBranchOverlay: assign({

@@ -160,7 +160,30 @@ This provides us with a lot of benefits:
       },
       master: {
         desc: `Our initial branch is called "master"
-(although it will at some point be renamed to main or similar)`,
+      (although it will at some point be renamed to main or similar).
+
+      Master should always contain working code`,
+      },
+      branchToFeature1: {
+        desc: `From the master branch, we can "branch out",
+or "snap a branch" as it's sometimes called.
+
+The new branch is identical to the master branch at that point in time (commit)`,
+      },
+      feature1: {
+        desc: `We now have two separate timelines.
+        Master, that holds our working code.
+        And feature1.`,
+      },
+      feature1MergeToMaster: {
+        desc: `When development is complete on the feature1 branch,
+        we can "merge" the code from feature1 into master.
+        
+        Now master and feature1 are identical`,
+      },
+      branchToFeature2Cards: {
+        desc: `Let's add another developer. 
+        Each developer makes her own branch.`,
       },
     },
   },
