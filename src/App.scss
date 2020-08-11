@@ -1,6 +1,6 @@
-#root {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.App {
+  width: 1000px;
+  margin: auto;
 }
 svg {
   grid-column: 1/-1;
@@ -44,6 +44,63 @@ svg {
   }
   100% {
     transform: scale(3.4) translate(100px, -80px);
+  }
+}
+.navWrapper {
+  button[disabled] {
+    opacity: 0.3;
+  }
+}
+.levels {
+  display: flex;
+  flex-direction: row;
+  li {
+    margin-left: 3rem;
+  }
+  position: absolute;
+  transform: translateY(-200px);
+  transition: all 0.2s ease-out;
+}
+.open .levels {
+  transform: translateY(0);
+}
+.up {
+  transition: all 0.3s;
+}
+.open .up {
+  transform: rotate(180deg);
+}
+nav {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    height: 100%;
+  }
+  button {
+    all: unset;
+    margin: 0 1rem;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+  button:hover path,
+  button:hover circle {
+    stroke: rgba(0, 0, 0, 0.4);
+  }
+  button:active path,
+  button:active circle {
+    stroke: lightblue;
+  }
+  button:hover circle {
+    stroke-dashoffset: 0;
+  }
+  circle {
+    stroke-dasharray: 54px;
+    stroke-dashoffset: 54px;
+    transition: all 0.4s;
   }
 }
 
