@@ -1,11 +1,17 @@
-.App {
-  width: 1000px;
-  margin: auto;
+body,
+html {
+  margin: 0;
+  padding: 0;
 }
 svg {
-  grid-column: 1/-1;
-  height: 80vmin;
+  width: 100%;
+  height: auto;
+}
+svg#viz {
+  display: block;
+  height: calc(100vmin - 100px);
   width: auto;
+
   margin: auto;
 }
 .DrawBox {

@@ -47,7 +47,7 @@ export default function Nav(props) {
           </button>
         </li>
       </ol>
-      <h2>currently on: {JSON.stringify(state.value)}</h2>
+
       <nav>
         <button onClick={() => setLevelsOpen(!levelsOpen)}>
           <ArrowUpCircle className="up" size={50} />

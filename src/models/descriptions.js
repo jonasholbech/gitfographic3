@@ -185,6 +185,32 @@ The new branch is identical to the master branch at that point in time (commit)`
         desc: `Let's add another developer. 
         Each developer makes her own branch.`,
       },
+      feature2Cards: {
+        desc: `Three timelines!
+        
+        Master is unchanged. 
+        And developer A & B can work on their own features, 
+        without risking destroying each other's work!
+        
+        Bloody Awesome`,
+      },
+      feature2MergeToMaster: {
+        desc: `Dev A is done, and merges his code into master.
+        
+        Dev B is not done yet, and continues to work on her own branch`,
+      },
+      branchToNav: {
+        desc: `Dev A get's a nother task and immediately branches out.
+        
+        Dev B, well, her task is a bit bigger`,
+      },
+      developmentComplete: {
+        desc: `The nav branch turns out to be a dead end, 
+        and it's never merged into master.
+        
+        In the meantime, developer B finishes her work
+        and merges into master`,
+      },
     },
   },
 };

@@ -32,4 +32,19 @@
       opacity: 0;
     }
   }
+  &[data-substate="feature2Cards"] {
+    line[x1="375"] {
+      opacity: 0;
+    }
+  }
+  &[data-substate="feature2MergeToMaster"] {
+    line[x1="425"] {
+      opacity: 0;
+    }
+  }
+  &[data-substate="branchToNav"] {
+    line[x1="475"] {
+      opacity: 0;
+    }
+  }
 }
