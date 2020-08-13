@@ -10,6 +10,7 @@ const topBranchTransitions = {
   commitScene: "commitScene",
   branchScene: "branchScene",
 };
+
 const machine = {
   id: "gitMachine",
   initial: initialState,
@@ -23,7 +24,7 @@ const machine = {
       overviewScene: true,
       gitignoreScene: true,
       commitScene: true,
-      branchScene: true,
+      branchScene: false,
     },
     commitListStep: -1,
     branchOverlayStep: 0,
@@ -33,17 +34,23 @@ const machine = {
     loaded: {
       id: "loaded",
       on: {
-        next: {
-          actions: [
-            { type: "fireworks", msg: "loading" },
-            { type: "unlockScene", scene: "overviewScene" },
-            send("overviewScene", { delay: 3000 }),
-          ],
-        },
-        nextLevel: "overviewScene",
+        next: [
+          {
+            target: "overviewScene",
+            cond: { type: "hasUnlocked", scene: "overviewScene" },
+          },
+          {
+            actions: [
+              { type: "fireworks", msg: "loading" },
+              { type: "unlockScene", scene: "overviewScene" },
+              send("overviewScene", { delay: 3000 }),
+            ],
+          },
+        ],
         ...topBranchTransitions,
       },
     },
+
     //scenes
     overviewScene: {
       entry: { type: "setBox", x: 100, y: 100 },
@@ -149,14 +156,19 @@ const machine = {
         takeAScreenshot: {
           entry: { type: "setBox", x: 300, y: 300 },
           on: {
-            next: {
-              actions: [
-                { type: "fireworks", msg: "Overview" },
-                { type: "unlockScene", scene: "gitignoreScene" },
-                send("gitignoreScene", { delay: 3000 }),
-              ],
-            },
-
+            next: [
+              {
+                target: "#gitignoreScene",
+                cond: { type: "hasUnlocked", scene: "gitignoreScene" },
+              },
+              {
+                actions: [
+                  { type: "fireworks", msg: "Overview" },
+                  { type: "unlockScene", scene: "gitignoreScene" },
+                  send("gitignoreScene", { delay: 3000 }),
+                ],
+              },
+            ],
             prev: "pullCommand",
           },
         },
@@ -195,13 +207,19 @@ const machine = {
         gitIgnoreFileMovedBack: {
           entry: { type: "setBox", x: 200, y: 0 },
           on: {
-            next: {
-              actions: [
-                { type: "fireworks", msg: ".gitignore" },
-                { type: "unlockScene", scene: "commitScene" },
-                send("commitScene", { delay: 3000 }),
-              ],
-            },
+            next: [
+              {
+                target: "#commitScene",
+                cond: { type: "hasUnlocked", scene: "commitScene" },
+              },
+              {
+                actions: [
+                  { type: "fireworks", msg: ".gitignore" },
+                  { type: "unlockScene", scene: "commitScene" },
+                  send("commitScene", { delay: 3000 }),
+                ],
+              },
+            ],
 
             prev: "gitIgnoreFile",
           },
@@ -306,13 +324,20 @@ const machine = {
         },
         commits7: {
           on: {
-            next: {
-              actions: [
-                { type: "fireworks", msg: "Commits" },
-                { type: "unlockScene", scene: "branchScene" },
-                send("branchScene", { delay: 3000 }),
-              ],
-            },
+            next: [
+              {
+                target: "#branchScene",
+                cond: { type: "hasUnlocked", scene: "branchScene" },
+              },
+              {
+                actions: [
+                  { type: "fireworks", msg: "Commits" },
+                  { type: "unlockScene", scene: "branchScene" },
+                  send("branchScene", { delay: 3000 }),
+                ],
+              },
+            ],
+
             prev: {
               target: "commits6",
               actions: "countDown",
@@ -438,6 +463,11 @@ const machine = {
   },
 };
 const flowMachine = Machine(machine, {
+  guards: {
+    hasUnlocked: (context, event, { cond }) => {
+      return context.unlocks[cond.scene];
+    },
+  },
   actions: {
     fireworks: (ctx, evt, { action }) => {
       //TODO: only fire when actually unlocking? that sounds like a guard on the transition
@@ -452,6 +482,7 @@ const flowMachine = Machine(machine, {
       fireOff();
       setTimeout(fireOff, 1000);
       setTimeout(fireOff, 2000);
+      document.body.dataset.fireworks = "true";
       const h1 = document.createElement("h1");
       h1.textContent = `Congratulations, you've completed the ${action.msg} scene`;
       h1.style.position = "absolute";
@@ -460,6 +491,7 @@ const flowMachine = Machine(machine, {
       document.body.appendChild(h1);
       setTimeout(() => {
         h1.remove();
+        document.body.dataset.fireworks = "false";
       }, 3000);
     },
     toggleTypewriter: assign({

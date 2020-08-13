@@ -28,7 +28,12 @@ svg#viz {
   stroke-dasharray: 1px;
   stroke-dashoffset: 1px;
 }
-
+body[data-fireworks="true"] {
+  svg,
+  nav {
+    opacity: 0;
+  }
+}
 @keyframes moveDown {
   to {
     transform: translateY(0);
