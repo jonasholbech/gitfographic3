@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body,
 html {
   margin: 0;
@@ -65,6 +68,7 @@ svg#viz {
 .levels {
   display: flex;
   flex-direction: row;
+  list-style-type: none;
   li {
     margin-left: 3rem;
   }
@@ -72,6 +76,31 @@ svg#viz {
   transform: translateY(-200px);
   transition: all 0.2s ease-out;
   z-index: 100;
+  box-shadow: 0 4px 2px -2px gray;
+  width: 100vw;
+  padding: 1rem;
+  background: white;
+  button {
+    border: none;
+    background: black;
+    color: white;
+    border-radius: 2px;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border: 1px solid white;
+    cursor: pointer;
+    &:hover:enabled {
+      background: white;
+      color: black;
+      border: 1px solid #000;
+    }
+  }
+  .close {
+    margin-left: auto;
+  }
+  button[disabled] {
+    cursor: unset;
+  }
 }
 .open .levels {
   transform: translateY(0);
@@ -87,7 +116,9 @@ nav {
   height: 100px;
   align-items: center;
   justify-content: center;
-
+  h2 {
+    flex: 1;
+  }
   svg {
     height: 100%;
   }

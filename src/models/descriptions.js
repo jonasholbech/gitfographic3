@@ -7,6 +7,7 @@ const descriptions = {
       And I just need you to press the "next" button`,
     },
     overviewScene: {
+      name: "Overview",
       first: {
         desc: `From a top view, git is just
         moving stuff between four boxes`,
@@ -77,6 +78,7 @@ Usually GitHub`,
       },
     },
     gitignoreScene: {
+      name: ".gitignore",
       gitIgnoreSceneSet: {
         desc: `Let's explore our working copy a bit more
         It's the files as they are on our computer.
@@ -114,6 +116,7 @@ Usually GitHub`,
       },
     },
     commitScene: {
+      name: "Commits",
       beforeCommits: {
         desc: `That was the overview. Let's take a look at what happens inside the repository`,
       },
@@ -148,6 +151,7 @@ Usually GitHub`,
       },
     },
     branchScene: {
+      name: "Branches",
       opening: {
         desc: `Branches allows us to make multiple timelines
 (those things with the commits)

@@ -6,49 +6,21 @@ import {
 } from "react-systemuicons";
 
 import { MachineContext } from "../models/MachineProvider";
+import descriptions from "../models/descriptions";
+import Levels from "./Levels";
 
 export default function Nav(props) {
   const [state, send] = useContext(MachineContext);
   const [levelsOpen, setLevelsOpen] = useState(false);
+
+  const scene = descriptions.states[state.toStrings()[0]].name;
+
   const classes = (levelsOpen ? "open" : "") + " navWrapper";
   return (
     <div className={classes}>
-      <ol className="levels">
-        <li>
-          <button
-            disabled={!state.context.unlocks.overviewScene}
-            onClick={() => send("overviewScene")}
-          >
-            {state.context.unlocks.overviewScene ? "Overview" : "Locked"}
-          </button>
-        </li>
-        <li>
-          <button
-            disabled={!state.context.unlocks.gitignoreScene}
-            onClick={() => send("gitignoreScene")}
-          >
-            {state.context.unlocks.gitignoreScene ? ".gitignore" : "Locked"}
-          </button>
-        </li>
-        <li>
-          <button
-            disabled={!state.context.unlocks.commitScene}
-            onClick={() => send("commitScene")}
-          >
-            {state.context.unlocks.commitScene ? "Commits" : "Locked"}
-          </button>
-        </li>
-        <li>
-          <button
-            disabled={!state.context.unlocks.branchScene}
-            onClick={() => send("branchScene")}
-          >
-            {state.context.unlocks.branchScene ? "Branches" : "Locked"}
-          </button>
-        </li>
-      </ol>
-
+      <Levels setLevelsOpen={setLevelsOpen} />
       <nav>
+        <h2>{scene}</h2>
         <button onClick={() => setLevelsOpen(!levelsOpen)}>
           <ArrowUpCircle className="up" size={50} />
         </button>
