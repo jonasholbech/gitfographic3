@@ -14,3 +14,5 @@
 * Dictionary
 
 - How it relates to brackets
+- github
+- github pages
