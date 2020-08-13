@@ -2,7 +2,6 @@ import { Machine, assign, send } from "xstate";
 import fx from "fireworks";
 import { initialState, unlockStorage } from "./config";
 //TODO: when switching scenes the text is misplaced, add initial setBox to all scenes
-//TODO: remove console errors from xstate, looks simple
 //TODO: error on invalid transition
 const topBranchTransitions = {
   overviewScene: "overviewScene",
