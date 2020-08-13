@@ -240,6 +240,7 @@ const machine = {
       },
     },
     commitScene: {
+      //TODO: show that it's the local repo
       id: "commitScene",
       initial: "opening",
       on: topBranchTransitions,
