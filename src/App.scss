@@ -82,7 +82,8 @@ body[data-fireworks="true"] {
   transition: all 0.2s ease-out;
   z-index: 100;
   box-shadow: 0 4px 2px -2px gray;
-  width: 100vw;
+  width: 100%;
+  margin: 0;
   padding: 1rem;
   background: white;
   button {

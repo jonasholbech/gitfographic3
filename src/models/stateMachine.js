@@ -2,7 +2,7 @@ import { Machine, assign, send } from "xstate";
 import fx from "fireworks";
 import { initialState, unlockStorage } from "./config";
 //TODO: when switching scenes the text is misplaced, add initial setBox to all scenes
-//TODO: error on invalid transition
+
 const topBranchTransitions = {
   overviewScene: "overviewScene",
   gitignoreScene: "gitignoreScene",
@@ -21,9 +21,12 @@ if (!storage) {
     })
   );
 }
+//TODO: maybe descriptions should be in meta?
+//https://xstate.js.org/docs/guides/states.html#state-meta-data
 storage = JSON.parse(localStorage.getItem(unlockStorage));
 const machine = {
   id: "gitMachine",
+  strict: true,
   initial: initialState,
   context: {
     description: {
@@ -41,7 +44,6 @@ const machine = {
     branchOverlayStep: 0,
   },
   states: {
-    //TODO frontpage instead (over view of tracks)
     loaded: {
       id: "loaded",
       on: {
@@ -366,7 +368,7 @@ const machine = {
           entry: ["resetBranchOverlay", { type: "setBox", x: 100, y: 50 }],
           on: {
             next: { target: "master", actions: "incrementBranchOverlay" },
-            prev: "#commitScene.commits7", //TODO: set commitCount corretly
+            prev: { target: "#commitScene.commits7", actions: "setCountEnd" },
           },
         },
         master: {
@@ -481,7 +483,6 @@ const flowMachine = Machine(machine, {
   },
   actions: {
     fireworks: (ctx, evt, { action }) => {
-      //TODO: only fire when actually unlocking? that sounds like a guard on the transition
       function fireOff(count = 6) {
         for (let i = 0; i < count; i++) {
           fx({
@@ -518,6 +519,11 @@ const flowMachine = Machine(machine, {
         description.x = action.x;
         description.y = action.y;
         return description;
+      },
+    }),
+    setCountEnd: assign({
+      commitListStep: (ctx, evt) => {
+        return 6;
       },
     }),
     countUp: assign({

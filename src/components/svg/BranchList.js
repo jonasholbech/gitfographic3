@@ -19,11 +19,10 @@ export default function BranchList({ x, y, step }) {
         <line x1="375" y1="50" x2="425" y2="50" />
         <line x1="425" y1="50" x2="475" y2="50" />
         <line x1="425" y1="0" x2="475" y2="-75" />
-        <line x1="425" y1="0" x2="525" y2="0" />
 
         <line x1="475" y1="50" x2="525" y2="50" />
         <line x1="525" y1="50" x2="575" y2="50" />
-        <line x1="475" y1="0" x2="625" y2="0" />
+        <line x1="425" y1="0" x2="625" y2="0" />
         <line x1="575" y1="50" x2="625" y2="0" />
         <g data-branch="master">
           <text x="20" y="0" textAnchor="middle" dominantBaseline="central">
@@ -94,4 +93,3 @@ export default function BranchList({ x, y, step }) {
     </>
   );
 }
-//TODO the final master line is two lines, change that
