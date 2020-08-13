@@ -1,6 +1,6 @@
 import { Machine, assign, send } from "xstate";
 import fx from "fireworks";
-import { initialState } from "./config";
+import { initialState, unlockStorage } from "./config";
 //TODO: when switching scenes the text is misplaced, add initial setBox to all scenes
 //TODO: remove console errors from xstate, looks simple
 //TODO: error on invalid transition
@@ -10,7 +10,19 @@ const topBranchTransitions = {
   commitScene: "commitScene",
   branchScene: "branchScene",
 };
-
+let storage = localStorage.getItem(unlockStorage);
+if (!storage) {
+  localStorage.setItem(
+    unlockStorage,
+    JSON.stringify({
+      overviewScene: false,
+      gitignoreScene: false,
+      commitScene: false,
+      branchScene: false,
+    })
+  );
+}
+storage = JSON.parse(localStorage.getItem(unlockStorage));
 const machine = {
   id: "gitMachine",
   initial: initialState,
@@ -21,10 +33,10 @@ const machine = {
       typewriter: false,
     },
     unlocks: {
-      overviewScene: true,
-      gitignoreScene: true,
-      commitScene: true,
-      branchScene: false,
+      overviewScene: storage?.overviewScene || false,
+      gitignoreScene: storage?.gitignoreScene || false,
+      commitScene: storage?.commitScene || false,
+      branchScene: storage?.branchScene || false,
     },
     commitListStep: -1,
     branchOverlayStep: 0,
@@ -548,6 +560,9 @@ const flowMachine = Machine(machine, {
       unlocks: (ctx, evt, { action }) => {
         const unlocks = { ...ctx.unlocks };
         unlocks[action.scene] = true;
+        let storage = JSON.parse(localStorage.getItem(unlockStorage));
+        storage[action.scene] = true;
+        localStorage.setItem(unlockStorage, JSON.stringify(storage));
         return unlocks;
       },
     }),
