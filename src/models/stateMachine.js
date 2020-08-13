@@ -1,5 +1,5 @@
-import { Machine, assign } from "xstate";
-
+import { Machine, assign, send } from "xstate";
+import fx from "fireworks";
 import { initialState } from "./config";
 //TODO: when switching scenes the text is misplaced, add initial setBox to all scenes
 //TODO: remove console errors from xstate, looks simple
@@ -22,8 +22,8 @@ const machine = {
     unlocks: {
       overviewScene: true,
       gitignoreScene: true,
-      commitScene: false,
-      branchScene: false,
+      commitScene: true,
+      branchScene: true,
     },
     commitListStep: -1,
     branchOverlayStep: 0,
@@ -34,9 +34,13 @@ const machine = {
       id: "loaded",
       on: {
         next: {
-          target: "overviewScene",
-          actions: { type: "unlockScene", scene: "overviewScene" },
+          actions: [
+            { type: "fireworks", msg: "loading" },
+            { type: "unlockScene", scene: "overviewScene" },
+            send("overviewScene", { delay: 3000 }),
+          ],
         },
+        nextLevel: "overviewScene",
         ...topBranchTransitions,
       },
     },
@@ -146,9 +150,13 @@ const machine = {
           entry: { type: "setBox", x: 300, y: 300 },
           on: {
             next: {
-              target: "#gitignoreScene",
-              actions: { type: "unlockScene", scene: "gitignoreScene" },
+              actions: [
+                { type: "fireworks", msg: "Overview" },
+                { type: "unlockScene", scene: "gitignoreScene" },
+                send("gitignoreScene", { delay: 3000 }),
+              ],
             },
+
             prev: "pullCommand",
           },
         },
@@ -190,9 +198,13 @@ const machine = {
           entry: { type: "setBox", x: 200, y: 0 },
           on: {
             next: {
-              target: "#commitScene",
-              actions: { type: "unlockScene", scene: "overviewScene" },
+              actions: [
+                { type: "fireworks", msg: ".gitignore" },
+                { type: "unlockScene", scene: "commitScene" },
+                send("commitScene", { delay: 3000 }),
+              ],
             },
+
             prev: "gitIgnoreFile",
           },
         },
@@ -299,8 +311,11 @@ const machine = {
         commits7: {
           on: {
             next: {
-              target: "#branchScene",
-              actions: { type: "unlockScene", scene: "commitScene" },
+              actions: [
+                { type: "fireworks", msg: "Commits" },
+                { type: "unlockScene", scene: "branchScene" },
+                send("branchScene", { delay: 3000 }),
+              ],
             },
             prev: {
               target: "commits6",
@@ -427,6 +442,29 @@ const machine = {
 };
 const flowMachine = Machine(machine, {
   actions: {
+    fireworks: (ctx, evt, { action }) => {
+      //TODO: only fire when actually unlocking? that sounds like a guard on the transition
+      function fireOff(count = 6) {
+        for (let i = 0; i < count; i++) {
+          fx({
+            x: window.innerWidth / 2 + Math.random() * 200 - 100,
+            y: window.innerHeight / 2 + Math.random() * 200 - 100,
+          });
+        }
+      }
+      fireOff();
+      setTimeout(fireOff, 1000);
+      setTimeout(fireOff, 2000);
+      const h1 = document.createElement("h1");
+      h1.textContent = `Congratulations, you've completed the ${action.msg} scene`;
+      h1.style.position = "absolute";
+      h1.style.textAlign = "center";
+      h1.style.top = "45vh";
+      document.body.appendChild(h1);
+      setTimeout(() => {
+        h1.remove();
+      }, 3000);
+    },
     toggleTypewriter: assign({
       description: (ctx, evt) => {
         const description = { ...ctx.description };

@@ -1671,6 +1671,14 @@
     "@types/prop-types" "*"
     csstype "^3.0.2"
 
+"@types/react@^16.8.22":
+  version "16.9.46"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.46.tgz#f0326cd7adceda74148baa9bff6e918632f5069e"
+  integrity sha512-dbHzO3aAq1lB3jRQuNpuZ/mnu+CdD3H0WVaaBQA8LTT3S33xhVBUj232T8M3tAhSWJs/D/UqORYUlJNl/8VQZg==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^3.0.2"
+
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
@@ -4749,6 +4757,14 @@ find-up@^3.0.0:
   integrity sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==
   dependencies:
     locate-path "^3.0.0"
+
+fireworks@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/fireworks/-/fireworks-2.2.6.tgz#69adb50ea3bee17fbca2d1c4107508bde623e2b1"
+  integrity sha512-V6fM1BpwMgdw30vABV9XxfVlAOl1qU9/dWRO6Yk0BHXnOb3MAYy474jnPP3K63jy4SZUE+4ituTvTGlDvzz0dA==
+  optionalDependencies:
+    "@types/react" "^16.8.22"
+    react "^16.8.6"
 
 flat-cache@^2.0.1:
   version "2.0.1"
@@ -9135,7 +9151,7 @@ react-systemuicons@0.0.6:
   resolved "https://registry.yarnpkg.com/react-systemuicons/-/react-systemuicons-0.0.6.tgz#701f73cfc0657dc9fe89efc6a242ec14850e8e51"
   integrity sha512-haO/wmJUlXjLmGxOcTogP5uLQAoJdTM+Abv/cUSG/FWM5PkmUXnFPXLQN4ZwWQNOjnFcndJeHB6GUEZhpI5Wcw==
 
-react@^16.13.1:
+react@^16.13.1, react@^16.8.6:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
