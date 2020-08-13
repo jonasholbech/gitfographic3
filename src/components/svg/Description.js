@@ -20,6 +20,7 @@ export default function Description({ x, y, text }) {
   }
   //TODO: same animation on typewriter?
   //Remember it as animated, but did delete some transition stuff
+  //but now it's not used
   return (
     <animated.g id="Description" style={spring}>
       <text x={0} y={0}>
