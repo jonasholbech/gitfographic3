@@ -42,6 +42,7 @@ const flowMachine = Machine(
       },
       //scenes
       overviewScene: {
+        entry: { type: "setBox", x: 100, y: 100 },
         id: "overviewScene",
         initial: "first",
         on: topBranchTransitions,
@@ -171,6 +172,7 @@ const flowMachine = Machine(
             },
           },
           gitIgnoreSceneSet2: {
+            entry: { type: "setBox", x: 200, y: 0 },
             on: {
               next: "gitIgnoreFile",
               prev: "gitIgnoreSceneSet",
@@ -412,7 +414,7 @@ const flowMachine = Machine(
           },
           developmentComplete: {
             on: {
-              next: { target: "", actions: "incrementBranchOverlay" },
+              //next: { target: "", actions: "incrementBranchOverlay" },
               prev: {
                 target: "branchToNav",
                 actions: "decrementBranchOverlay",
