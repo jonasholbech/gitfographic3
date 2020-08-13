@@ -23,7 +23,7 @@ export default function SVG({ children }) {
     descriptions.states[parent].desc;
 
   return (
-    <svg id="viz" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+    <svg id="viz" viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
       <Defs />
       {machineState.matches("overviewScene") && <Overview />}
       {machineState.matches("gitignoreScene") && <Gitignore />}
