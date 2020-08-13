@@ -26,7 +26,7 @@ export default function BranchList({ x, y, step }) {
         <line x1="475" y1="0" x2="625" y2="0" />
         <line x1="575" y1="50" x2="625" y2="0" />
         <g data-branch="master">
-          <text x="20" y="0" text-anchor="middle" dominant-baseline="central">
+          <text x="20" y="0" textAnchor="middle" dominantBaseline="central">
             master
           </text>
           <circle cx={75} cy={0} r={10} className="drawCircle" />
@@ -36,12 +36,7 @@ export default function BranchList({ x, y, step }) {
           <circle cx={425} cy={0} r={10} className="drawCircle" />
         </g>
         <g data-branch="feature1">
-          <text
-            x="195"
-            y="-50"
-            text-anchor="middle"
-            dominant-baseline="central"
-          >
+          <text x="195" y="-50" textAnchor="middle" dominantBaseline="central">
             feature1
           </text>
 
@@ -49,12 +44,7 @@ export default function BranchList({ x, y, step }) {
           <circle cx={175} cy={-25} r={10} className="drawCircle" />
         </g>
         <g data-branch="feature2">
-          <text
-            x="350"
-            y="-75"
-            text-anchor="middle"
-            dominant-baseline="central"
-          >
+          <text x="350" y="-75" textAnchor="middle" dominantBaseline="central">
             feature2
           </text>
           <circle cx={325} cy={-50} r={10} className="drawCircle" />
@@ -71,12 +61,12 @@ export default function BranchList({ x, y, step }) {
           <circle cx={325} cy={50} r={10} className="drawCircle" />
           <circle cx={375} cy={50} r={10} className="drawCircle" />
 
-          <text x="350" y="75" text-anchor="middle" dominant-baseline="central">
+          <text x="350" y="75" textAnchor="middle" dominantBaseline="central">
             cards
           </text>
         </g>
 
-        <text x="475" y="-100" text-anchor="middle" dominant-baseline="central">
+        <text x="475" y="-100" textAnchor="middle" dominantBaseline="central">
           nav
         </text>
         <circle cx={425} cy={50} r={10} className="drawCircle" />

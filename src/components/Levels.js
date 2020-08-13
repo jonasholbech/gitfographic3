@@ -1,23 +1,8 @@
-import React, { useContext, useState } from "react";
-import {
-  ArrowRightCircle,
-  ArrowLeftCircle,
-  ArrowUpCircle,
-} from "react-systemuicons";
+import React, { useContext } from "react";
 
 import { MachineContext } from "../models/MachineProvider";
 
 export default function Levels({ setLevelsOpen }) {
-  /*const levels = [];
-  for (const property in machine.states) {
-    if (machine.states[property].name) {
-      levels.push({
-        name: machine.states[property].name,
-        id: machine.states[property].id,
-      });
-    }
-  }
-  console.log(levels);*/
   const [state, send] = useContext(MachineContext);
 
   return (

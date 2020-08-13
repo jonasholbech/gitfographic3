@@ -20,10 +20,10 @@ const machine = {
       typewriter: false,
     },
     unlocks: {
-      overviewScene: false,
-      gitignoreScene: false,
-      commitScene: false,
-      branchScene: false,
+      overviewScene: true,
+      gitignoreScene: true,
+      commitScene: true,
+      branchScene: true,
     },
     commitListStep: -1,
     branchOverlayStep: 0,
@@ -168,9 +168,7 @@ const machine = {
       on: topBranchTransitions,
       states: {
         opening: {
-          on: {
-            "": "gitIgnoreSceneSet",
-          },
+          always: "gitIgnoreSceneSet",
         },
         gitIgnoreSceneSet: {
           entry: { type: "setBox", x: 200, y: 0 },
@@ -217,9 +215,7 @@ const machine = {
       states: {
         opening: {
           entry: ["resetCount"],
-          on: {
-            "": "beforeCommits",
-          },
+          always: "beforeCommits",
         },
         beforeCommits: {
           entry: { type: "setBox", x: 50, y: 50 },
@@ -428,6 +424,7 @@ const machine = {
           },
         },
         developmentComplete: {
+          //TODO: fireworks etc
           on: {
             //next: { target: "", actions: "incrementBranchOverlay" },
             prev: {
