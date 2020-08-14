@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/gitfographic3/static/css/main.1acbb250.chunk.css",
-    "main.js": "/gitfographic3/static/js/main.4074b328.chunk.js",
-    "main.js.map": "/gitfographic3/static/js/main.4074b328.chunk.js.map",
+    "main.js": "/gitfographic3/static/js/main.f72c8f21.chunk.js",
+    "main.js.map": "/gitfographic3/static/js/main.f72c8f21.chunk.js.map",
     "runtime-main.js": "/gitfographic3/static/js/runtime-main.383499d0.js",
     "runtime-main.js.map": "/gitfographic3/static/js/runtime-main.383499d0.js.map",
     "static/js/2.a505b39a.chunk.js": "/gitfographic3/static/js/2.a505b39a.chunk.js",
     "static/js/2.a505b39a.chunk.js.map": "/gitfographic3/static/js/2.a505b39a.chunk.js.map",
     "index.html": "/gitfographic3/index.html",
-    "precache-manifest.2e46f4aeddf042105831129935b60cc1.js": "/gitfographic3/precache-manifest.2e46f4aeddf042105831129935b60cc1.js",
+    "precache-manifest.cb07a4d0016a9a924bdded668feae764.js": "/gitfographic3/precache-manifest.cb07a4d0016a9a924bdded668feae764.js",
     "service-worker.js": "/gitfographic3/service-worker.js",
     "static/css/main.1acbb250.chunk.css.map": "/gitfographic3/static/css/main.1acbb250.chunk.css.map",
     "static/js/2.a505b39a.chunk.js.LICENSE.txt": "/gitfographic3/static/js/2.a505b39a.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.383499d0.js",
     "static/js/2.a505b39a.chunk.js",
     "static/css/main.1acbb250.chunk.css",
-    "static/js/main.4074b328.chunk.js"
+    "static/js/main.f72c8f21.chunk.js"
   ]
 }
