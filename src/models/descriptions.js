@@ -25,7 +25,9 @@ Usually GitHub`,
       },
       stagingArea: {
         desc: `The staging area is a temporary "folder"
-            Where you gather the files you would like to store in the next commit`,
+            Where you gather the files you would like to store in the next "commit".
+            
+            We'll get back to what a commit is shortly`,
       },
       localRepository: {
         desc: `The Local Repository, or local repo,

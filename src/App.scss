@@ -6,6 +6,7 @@ html {
   margin: 0;
   padding: 0;
 }
+
 svg {
   width: 100%;
   height: auto;
@@ -122,6 +123,7 @@ nav {
   height: 100px;
   align-items: center;
   justify-content: center;
+  padding-left: 0.5rem;
   h2 {
     flex: 1;
   }
