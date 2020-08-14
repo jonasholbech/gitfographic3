@@ -86,6 +86,9 @@ const actions = {
       return action.x;
     },
   }),
+  setCssFileStep: assign({
+    cssFileStep: (ctx, evt, { action }) => action.value,
+  }),
   unlockScene: assign({
     unlocks: (ctx, evt, { action }) => {
       const unlocks = { ...ctx.unlocks };

@@ -13,6 +13,10 @@
 circle.commit {
   fill: white;
   stroke: #000;
+  transition: all 1s;
+}
+line {
+  stroke: #000;
 }
 [data-parentstate="resetCheckoutScene"] {
   #workingcopy,
@@ -31,13 +35,23 @@ circle.commit {
       transform: translateX(-300px);
     }
     [id^="cssFile"],
-    [id^="htmlFile"] {
+    [id^="htmlFile"],
+    .commit,
+    line {
       opacity: 0;
     }
   }
   &[data-substate="spreadOut"] {
     [id^="cssFile"],
-    [id^="htmlFile"] {
+    [id^="htmlFile"],
+    .commit,
+    line {
+      opacity: 0;
+    }
+  }
+  &[data-substate="filesAddedToProject"] {
+    .commit,
+    line {
       opacity: 0;
     }
   }
@@ -50,12 +64,68 @@ circle.commit {
       transition: all 2s;
       transform: translate(380px, 0px);
     }
+    .commit {
+      transform: translate(-380px, 30px);
+      opacity: 0;
+    }
+    line {
+      opacity: 0;
+    }
   }
   &[data-substate="firstCommitCommand"] {
+    line {
+      opacity: 0;
+    }
     .commit {
-      transform: translate(-380px, 40px);
-      transition: all 1s;
+      transform: translate(-380px, 30px);
+      opacity: 0;
+    }
+    .commit[data-number="1"] {
+      opacity: 1;
       transform: translate(0, 0);
+    }
+  }
+  &[data-substate="firstChangeToFiles"] {
+    line {
+      opacity: 0;
+    }
+    .commit[data-number="2"] {
+      transform: translate(-380px, 30px);
+      opacity: 0;
+    }
+  }
+  &[data-substate="secondAddCommand"] {
+    line {
+      opacity: 0;
+    }
+    .commit[data-number="2"] {
+      transform: translate(-380px, 30px);
+      opacity: 0;
+    }
+    #cssFile2 {
+      transition: all 2s;
+      transform: translate(380px, 0);
+    }
+  }
+  &[data-substate="secondCommitCommand"] {
+    .commit {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+  &[data-substate="reset"] {
+    .commit[data-number="2"],
+    line {
+      transition: all 1s;
+      opacity: 0;
+    }
+  }
+  &[data-substate="checkout"] {
+    .commit[data-number="2"],
+    line {
+      transition: all 1s;
+      opacity: 0.5;
+      stroke-dasharray: 4px;
     }
   }
 }

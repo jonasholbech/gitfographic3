@@ -1,4 +1,4 @@
-//import { send } from "xstate";
+import { send } from "xstate";
 import topBranchTransitions from "./topBranchTransitions";
 const resetCheckoutScene = {
   id: "resetCheckoutScene",
@@ -34,7 +34,76 @@ const resetCheckoutScene = {
       on: { next: "firstCommitCommand", prev: "filesAddedToProject" },
     },
     firstCommitCommand: {
-      on: { next: "", prev: "firstAddCommand" },
+      entry: [
+        { type: "setCssFileStep", value: 0 },
+        { type: "setBox", x: 600, y: 120 },
+      ],
+      on: { next: "firstChangeToFiles", prev: "firstAddCommand" },
+    },
+    firstChangeToFiles: {
+      entry: [
+        { type: "setCssFileStep", value: 1 },
+        { type: "setBox", x: 200, y: 120 },
+      ],
+      on: {
+        next: "secondAddCommand",
+        prev: "firstCommitCommand",
+      },
+    },
+    secondAddCommand: {
+      entry: { type: "setBox", x: 600, y: 220 },
+      on: {
+        next: "secondCommitCommand",
+        prev: "firstChangeToFiles",
+      },
+    },
+    secondCommitCommand: {
+      entry: { type: "setBox", x: 600, y: 220 },
+      on: {
+        next: "resetIntro",
+        prev: "secondAddCommand",
+      },
+    },
+    resetIntro: {
+      entry: { type: "setBox", x: 200, y: 120 },
+      on: { next: "reset", prev: "secondCommitCommand" },
+    },
+    reset: {
+      entry: { type: "setCssFileStep", value: 0 },
+      on: { next: "restored", prev: "resetIntro" },
+    },
+    restored: {
+      entry: { type: "setCssFileStep", value: 1 },
+      on: {
+        next: "checkout",
+        prev: "reset",
+      },
+    },
+    checkout: {
+      entry: { type: "setCssFileStep", value: 0 },
+      on: {
+        next: "ending",
+        prev: "restored",
+      },
+    },
+    ending: {
+      on: {
+        next: {
+          /*{
+            target: "#resetCheckoutScene",
+            cond: { type: "hasUnlocked", scene: "resetCheckoutScene" },
+          },
+          {*/
+          actions: [
+            { type: "fireworks", msg: "Reset/Checkout" },
+            send("resetCheckoutScene", { delay: 3000 }),
+          ],
+          //},
+        },
+        prev: {
+          target: "checkout",
+        },
+      },
     },
   },
 };

@@ -316,7 +316,62 @@ The new branch is identical to the master branch at that point in time (commit)`
         The files in your folder are unchanged!`,
       },
       firstCommitCommand: {
-        desc: `You commit the files on master.`,
+        desc: `You commit the files on master.
+        
+        And your working copy? unchanged`,
+      },
+      firstChangeToFiles: {
+        desc: `Your first commit is done, and you continue working on your project.
+        
+        Changing the CSS`,
+      },
+      secondAddCommand: {
+        desc: `You add the only file that has changed`,
+      },
+      secondCommitCommand: {
+        desc: `You commit your changes, 
+        and your timeline now has two commits.
+        
+        Your development files? Well what do you think?
+        
+        (take a look)`,
+      },
+      resetIntro: {
+        desc: `Regretting your radical design changes, you wish to go back
+        And you just happens to remember that the command is called "reset".
+        
+        So, click next to reset to the previous commit`,
+      },
+      reset: {
+        desc: `Wow it worked. That Jonas guy must be on to something.
+        
+        You look to your left and see that your files are back to their earlier state.
+        
+        And to your right, you notice that the commit is gone. FOREVER.
+        
+        Reset is a destructive action!!
+        
+        So let's imagine we hadn't reset and learn about another command (next)`,
+      },
+      restored: {
+        desc: `With a long line of commits, it's hard to remember which one to reset to.
+        
+        That's why we have the "checkout" command.
+        
+        Checkout changes out working files so we can see what we had at that time.
+        
+        But it does NOT change out timeline (we're going back in time?)`,
+      },
+      checkout: {
+        desc: `See your files and your timeline? 
+        The files are reverted, and I've indicated that the timeline is still there 
+        by making it opaque`,
+      },
+      ending: {
+        desc: `Being very perceptive, and feeling awefully good about yourself, 
+        you realize that the best idea is to
+        1. Use checkout to find the commit you're looking for
+        2. THEN use reset to go back to that point`,
       },
     },
   },

@@ -51,15 +51,15 @@ export default function ResetCheckoutScene() {
         id="cssFile"
         name="style.css"
         texts={cssTexts}
-        count={0}
+        count={machineState.context.cssFileStep}
       />
       <FileWithText
         x={60}
-        y={160}
+        y={200}
         id="htmlFile"
         name="index.html"
         texts={htmlTexts}
-        count={0}
+        count={machineState.context.htmlFileStep}
       />
       <FileWithText
         x={60}
@@ -67,17 +67,19 @@ export default function ResetCheckoutScene() {
         id="cssFile2"
         name="style.css"
         texts={cssTexts}
-        count={0}
+        count={machineState.context.cssFileStep}
       />
       <FileWithText
         x={60}
-        y={160}
+        y={200}
         id="htmlFile2"
         name="index.html"
         texts={htmlTexts}
-        count={0}
+        count={machineState.context.htmlFileStep}
       />
-      <circle class="commit" cx={875} cy={120} r={10} />
+      <line x1="875" y1="120" x2="875" y2="170" />
+      <circle className="commit" data-number="1" cx={875} cy={120} r={10} />
+      <circle className="commit" data-number="2" cx={875} cy={170} r={10} />
     </g>
   );
 }
