@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { MachineContext } from "../../models/MachineProvider";
+import { MachineContext } from "../../machine/MachineProvider";
 
-import descriptions from "../../models/descriptions";
+import descriptions from "../../machine/descriptions";
 import Defs from "./Defs";
 import Description from "./Description";
 import TypewriterDescription from "./TypewriterDescription";

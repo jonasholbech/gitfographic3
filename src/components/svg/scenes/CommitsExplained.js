@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { MachineContext } from "../../../models/MachineProvider";
+import { MachineContext } from "../../../machine/MachineProvider";
 
 import CommitList from "../CommitList";
 

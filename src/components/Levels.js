@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { MachineContext } from "../models/MachineProvider";
+import { MachineContext } from "../machine/MachineProvider";
 
 export default function Levels({ setLevelsOpen }) {
   const [state, send] = useContext(MachineContext);

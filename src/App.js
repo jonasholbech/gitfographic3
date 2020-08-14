@@ -1,8 +1,8 @@
 import React from "react";
 import { useMachine } from "@xstate/react";
 
-import { MachineProvider } from "./models/MachineProvider";
-import flowMachine from "./models/stateMachine";
+import { MachineProvider } from "./machine/MachineProvider";
+import flowMachine from "./machine/stateMachine";
 
 import Nav from "./components/Nav";
 import SVG from "./components/svg/SVG";

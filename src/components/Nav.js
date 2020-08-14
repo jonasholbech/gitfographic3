@@ -5,8 +5,8 @@ import {
   ArrowUpCircle,
 } from "react-systemuicons";
 
-import { MachineContext } from "../models/MachineProvider";
-import descriptions from "../models/descriptions";
+import { MachineContext } from "../machine/MachineProvider";
+import descriptions from "../machine/descriptions";
 import Levels from "./Levels";
 
 export default function Nav(props) {
