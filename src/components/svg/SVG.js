@@ -10,6 +10,7 @@ import Overview from "./scenes/Overview";
 import Gitignore from "./scenes/Gitignore";
 import CommitsExplained from "./scenes/CommitsExplained";
 import Branches from "./scenes/Branches";
+import ResetCheckoutScene from "./scenes/ResetCheckoutScene";
 //context kan nu tilgås og sættes fra react, så store skal dø, og udskiftes med context
 export default function SVG({ children }) {
   const [machineState] = useContext(MachineContext);
@@ -31,6 +32,7 @@ export default function SVG({ children }) {
       {machineState.matches("gitignoreScene") && <Gitignore />}
       {machineState.matches("commitScene") && <CommitsExplained />}
       {machineState.matches("branchScene") && <Branches />}
+      {machineState.matches("resetCheckoutScene") && <ResetCheckoutScene />}
 
       {!machineState.context.description.typewriter && (
         <Description

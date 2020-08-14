@@ -5,6 +5,7 @@ import overviewScene from "./scenes/overviewScene";
 import gitignoreScene from "./scenes/gitignoreScene";
 import commitScene from "./scenes/commitScene";
 import branchScene from "./scenes/branchScene";
+import resetCheckoutScene from "./scenes/resetCheckoutScene";
 
 import guards from "./parts/guards";
 import actions from "./parts/actions";
@@ -23,6 +24,7 @@ if (!storage) {
       gitignoreScene: false,
       commitScene: false,
       branchScene: false,
+      resetCheckoutScene: false,
     })
   );
 }
@@ -45,6 +47,7 @@ const machine = {
       gitignoreScene: storage?.gitignoreScene || false,
       commitScene: storage?.commitScene || false,
       branchScene: storage?.branchScene || false,
+      resetCheckoutScene: storage?.resetCheckoutScene || false,
     },
     commitListStep: -1,
     branchOverlayStep: 0,
@@ -55,6 +58,7 @@ const machine = {
     gitignoreScene,
     commitScene,
     branchScene,
+    resetCheckoutScene,
   },
 };
 const flowMachine = Machine(machine, {

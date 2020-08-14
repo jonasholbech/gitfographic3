@@ -7,8 +7,11 @@
 - git log
   - commit messages
 - when to branch
+- merging
 - Rounding thoughts
   - It's all confusing BUT...
+- resetting / checking out
+-
 
 * quiz
 * Dictionary

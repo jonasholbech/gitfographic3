@@ -62,6 +62,17 @@ export default function Levels({ setLevelsOpen }) {
           {state.context.unlocks.branchScene ? "Branches" : "Locked"}
         </button>
       </li>
+      <li>
+        <button
+          disabled={!state.context.unlocks.resetCheckoutScene}
+          onClick={() => {
+            setLevelsOpen(false);
+            send("resetCheckoutScene");
+          }}
+        >
+          {state.context.unlocks.resetCheckoutScene ? "Resetting" : "Locked"}
+        </button>
+      </li>
       <li className="close">
         <button onClick={() => setLevelsOpen(false)}>X</button>
       </li>

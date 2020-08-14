@@ -4,5 +4,6 @@ const topBranchTransitions = {
   gitignoreScene: "gitignoreScene",
   commitScene: "commitScene",
   branchScene: "branchScene",
+  resetCheckoutScene: "resetCheckoutScene",
 };
 export default topBranchTransitions;
