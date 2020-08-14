@@ -2,9 +2,39 @@ import { initialState } from "./config";
 const descriptions = {
   initial: initialState,
   states: {
-    loaded: {
-      desc: `Everything is loaded
-      And I just need you to press the "next" button`,
+    introductionScene: {
+      name: "Introduction",
+      whatIsThis: {
+        desc: `Welcome to Gitfographic<3
+        
+        This little project is meant to help you get up and running in the crazy world of Git.
+        
+        It is not meant to teach you how to actually do all the Git stuff, but rather:
+        - give you an introduction to what it is,
+        - why we use it
+        - a vocabulary to make learning it easier
+
+        Find the next button, and click it
+        `,
+      },
+      navigation: {
+        desc: `Well done, you found it, did you click the other arrow as well?
+        
+        That one gives you an overview of the "levels" you've completed.
+        
+        You can always jump between completed levels.
+        
+        Go ahead and click next (this is the final time I'm telling you)`,
+      },
+      whyGit: {
+        desc: `Why Git? TODO:`,
+      },
+      metaphoresUsed: {
+        desc: `Metaphores used. TODO:`,
+      },
+      isItHard: {
+        desc: `Git is "Made by geeks, for geeks" TODO:`,
+      },
     },
     overviewScene: {
       name: "Overview",

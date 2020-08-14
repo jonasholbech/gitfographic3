@@ -8,12 +8,15 @@ const topBranchTransitions = {
   gitignoreScene: "gitignoreScene",
   commitScene: "commitScene",
   branchScene: "branchScene",
+  introduction: "introductionScene",
 };
+//TODO: if the storage.length (ish) does not match the above, staorage is invalid", clear it? merge it?
 let storage = localStorage.getItem(unlockStorage);
 if (!storage) {
   localStorage.setItem(
     unlockStorage,
     JSON.stringify({
+      introductionScene: true,
       overviewScene: false,
       gitignoreScene: false,
       commitScene: false,
@@ -35,6 +38,7 @@ const machine = {
       typewriter: false,
     },
     unlocks: {
+      introductionScene: storage?.introductionScene || true,
       overviewScene: storage?.overviewScene || false,
       gitignoreScene: storage?.gitignoreScene || false,
       commitScene: storage?.commitScene || false,
@@ -44,23 +48,52 @@ const machine = {
     branchOverlayStep: 0,
   },
   states: {
-    loaded: {
-      id: "loaded",
-      on: {
-        next: [
-          {
-            target: "overviewScene",
-            cond: { type: "hasUnlocked", scene: "overviewScene" },
+    introductionScene: {
+      id: "introductionScene",
+      initial: "whatIsThis",
+      on: topBranchTransitions,
+      states: {
+        whatIsThis: {
+          on: {
+            next: "navigation",
           },
-          {
-            actions: [
-              { type: "fireworks", msg: "loading" },
-              { type: "unlockScene", scene: "overviewScene" },
-              send("overviewScene", { delay: 3000 }),
+        },
+        navigation: {
+          on: {
+            next: "whyGit",
+            prev: "whatIsThis",
+          },
+        },
+        whyGit: {
+          on: {
+            next: "metaphoresUsed",
+            prev: "navigation",
+          },
+        },
+        metaphoresUsed: {
+          on: {
+            next: "isItHard",
+            prev: "whyGit",
+          },
+        },
+        isItHard: {
+          on: {
+            next: [
+              {
+                target: "#overviewScene",
+                cond: { type: "hasUnlocked", scene: "overviewScene" },
+              },
+              {
+                actions: [
+                  { type: "fireworks", msg: "introduction" },
+                  { type: "unlockScene", scene: "overviewScene" },
+                  send("overviewScene", { delay: 3000 }),
+                ],
+              },
             ],
+            prev: "whyGit",
           },
-        ],
-        ...topBranchTransitions,
+        },
       },
     },
 
@@ -74,6 +107,7 @@ const machine = {
         first: {
           on: {
             next: "drawLocalBox",
+            prev: "#introductionScene.isItHard",
           },
         },
         drawLocalBox: {

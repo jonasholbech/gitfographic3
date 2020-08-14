@@ -5,6 +5,7 @@ import descriptions from "../../models/descriptions";
 import Defs from "./Defs";
 import Description from "./Description";
 import TypewriterDescription from "./TypewriterDescription";
+import Introduction from "./scenes/Introduction";
 import Overview from "./scenes/Overview";
 import Gitignore from "./scenes/Gitignore";
 import CommitsExplained from "./scenes/CommitsExplained";
@@ -25,6 +26,7 @@ export default function SVG({ children }) {
   return (
     <svg id="viz" viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
       <Defs />
+      {machineState.matches("introductionScene") && <Introduction />}
       {machineState.matches("overviewScene") && <Overview />}
       {machineState.matches("gitignoreScene") && <Gitignore />}
       {machineState.matches("commitScene") && <CommitsExplained />}

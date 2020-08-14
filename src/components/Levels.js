@@ -9,6 +9,17 @@ export default function Levels({ setLevelsOpen }) {
     <ol className="levels">
       <li>
         <button
+          disabled={!state.context.unlocks.introductionScene}
+          onClick={() => {
+            setLevelsOpen(false);
+            send("introductionScene");
+          }}
+        >
+          {state.context.unlocks.introductionScene ? "Introduction" : "Locked"}
+        </button>
+      </li>
+      <li>
+        <button
           disabled={!state.context.unlocks.overviewScene}
           onClick={() => {
             setLevelsOpen(false);

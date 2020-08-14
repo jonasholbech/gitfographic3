@@ -12,6 +12,7 @@ import "./scss/Overview.scss";
 import "./scss/Gitignore.scss";
 import "./scss/Commits.scss";
 import "./scss/Branches.scss";
+import "./scss/Introduction.scss";
 
 function App() {
   const machineInstance = useMachine(flowMachine);
