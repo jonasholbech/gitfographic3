@@ -4,11 +4,11 @@ import { initialState, unlockStorage } from "./config";
 //TODO: when switching scenes the text is misplaced, add initial setBox to all scenes
 
 const topBranchTransitions = {
+  introductionScene: "introductionScene",
   overviewScene: "overviewScene",
   gitignoreScene: "gitignoreScene",
   commitScene: "commitScene",
   branchScene: "branchScene",
-  introduction: "introductionScene",
 };
 //TODO: if the storage.length (ish) does not match the above, staorage is invalid", clear it? merge it?
 let storage = localStorage.getItem(unlockStorage);
@@ -60,8 +60,14 @@ const machine = {
         },
         navigation: {
           on: {
-            next: "whyGit",
+            next: "whatIsGit",
             prev: "whatIsThis",
+          },
+        },
+        whatIsGit: {
+          on: {
+            next: "whyGit",
+            prev: "navigation",
           },
         },
         whyGit: {

@@ -20,24 +20,67 @@ const descriptions = {
         `,
       },
       navigation: {
-        desc: `Well done, you found it, did you click the other arrow as well?
+        desc: `Well done, you found it, did you click the up-arrow as well?
         
         That one gives you an overview of the "levels" you've completed.
         
         You can always jump between completed levels.
         
-        Please read all the texts carefully, I've spent a lot of time making them as short and to the point
+        Please read all the texts carefully, I've spent a lot of time making them short and to the point
  
         Go ahead and click next (this is the final time I'm telling you)`,
       },
+      whatIsGit: {
+        desc: `What is Git?
+        
+        Git is what is called a "version control system"
+        
+        In English that means: A system to track changes in documents.
+        
+        In out case, that means HTML / CSS / JS etc
+        
+        `,
+      },
       whyGit: {
-        desc: `Why Git? TODO:`,
+        desc: `Git and why bother.
+        
+        "I don't need that" is a common objection to Git, "I can just copy my folder" is another.
+
+        And that is true, but soon that's going to be a real mess. 
+        So let's take a look at the major selling points for Git:
+ 
+  - Git gives you "incremental backups", meaning you can make a "save game" when you feel like it
+ - You can always go back to a "save game" later
+ - Did you mess something up? Just go back
+ - You can make different versions so you can try out ideas safely
+ - You can collaborate with others WITHOUT overwriting each others work
+ - With a push on a button, all your work is backed up on a service called GitHub"
+        `,
       },
       metaphoresUsed: {
-        desc: `Metaphores used. TODO:`,
+        desc: `I'll be using a few metaphores here and there.
+        
+        Save Games: Those are the points in time you can go back to
+        
+        Timelines: Those are the different versions of your site/program etc`,
       },
       isItHard: {
-        desc: `Git is "Made by geeks, for geeks" TODO:`,
+        desc: `Is Git hard?
+        
+        Well, here's a quote I found somewhere:
+        
+        Git is "Made by geeks, for geeks"
+        
+        And that is the sad truth.
+        
+        BUT. It's just a matter of memorizing a few new workflows. 
+
+        So if you can do that and you can be consistent in using those,
+        
+        Then the advantages outweigh the disadvantages.... a lot.
+        
+        Have fun, and ask when you're stuck
+         - Jonas`,
       },
     },
     overviewScene: {
