@@ -18,3 +18,7 @@
 - github pages
 
 * clear progress (localStorage)
+
+# bugs and improvements
+
+- https://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject instead of description (with multiple text elements / tspan) - that could give me syntax highlighting, markdown, formatting etc
