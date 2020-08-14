@@ -70,7 +70,9 @@ export default function Levels({ setLevelsOpen }) {
             send("resetCheckoutScene");
           }}
         >
-          {state.context.unlocks.resetCheckoutScene ? "Resetting" : "Locked"}
+          {state.context.unlocks.resetCheckoutScene
+            ? "Reset / Checkout"
+            : "Locked"}
         </button>
       </li>
       <li className="close">

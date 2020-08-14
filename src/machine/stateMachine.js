@@ -20,11 +20,11 @@ if (!storage) {
     unlockStorage,
     JSON.stringify({
       introductionScene: true,
-      overviewScene: false,
-      gitignoreScene: false,
-      commitScene: false,
-      branchScene: false,
-      resetCheckoutScene: false,
+      overviewScene: true,
+      gitignoreScene: true,
+      commitScene: true,
+      branchScene: true,
+      resetCheckoutScene: true,
     })
   );
 }

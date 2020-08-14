@@ -1,4 +1,4 @@
-//import { send } from "xstate";
+import { send } from "xstate";
 import topBranchTransitions from "./topBranchTransitions";
 const branchScene = {
   id: "branchScene",
@@ -105,7 +105,19 @@ const branchScene = {
     developmentComplete: {
       //TODO: fireworks etc
       on: {
-        //next: { target: "", actions: "incrementBranchOverlay" },
+        next: [
+          {
+            target: "#resetCheckoutScene",
+            cond: { type: "hasUnlocked", scene: "resetCheckoutScene" },
+          },
+          {
+            actions: [
+              { type: "fireworks", msg: "Branches" },
+              { type: "unlockScene", scene: "resetCheckoutScene" },
+              send("resetCheckoutScene", { delay: 3000 }),
+            ],
+          },
+        ],
         prev: {
           target: "branchToNav",
           actions: "decrementBranchOverlay",

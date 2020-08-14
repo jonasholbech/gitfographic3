@@ -8,11 +8,12 @@ import Nav from "./components/Nav";
 import SVG from "./components/svg/SVG";
 
 import "./App.scss";
+import "./scss/Introduction.scss";
 import "./scss/Overview.scss";
 import "./scss/Gitignore.scss";
 import "./scss/Commits.scss";
 import "./scss/Branches.scss";
-import "./scss/Introduction.scss";
+import "./scss/ResetCheckout.scss";
 
 function App() {
   const machineInstance = useMachine(flowMachine);

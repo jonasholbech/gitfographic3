@@ -1,2 +1,2 @@
-export const initialState = "introductionScene";
+export const initialState = "resetCheckoutScene";
 export const unlockStorage = "gitUnlock";

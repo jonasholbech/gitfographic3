@@ -74,10 +74,9 @@ body[data-fireworks="true"] {
 .levels {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   list-style-type: none;
-  li {
-    margin-left: 3rem;
-  }
+  justify-content: space-between;
   position: absolute;
   transform: translateY(-200px);
   transition: all 0.2s ease-out;
@@ -102,9 +101,9 @@ body[data-fireworks="true"] {
       border: 1px solid #000;
     }
   }
-  .close {
+  /*.close {
     margin-left: auto;
-  }
+  }*/
   button[disabled] {
     cursor: unset;
   }

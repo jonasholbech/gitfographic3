@@ -66,6 +66,11 @@ const actions = {
       return 0;
     },
   }),
+  setBranchOverlayEnd: assign({
+    branchOverlayStep: (ctx, evt) => {
+      return 9;
+    },
+  }),
   incrementBranchOverlay: assign({
     branchOverlayStep: (ctx, evt) => {
       return ctx.branchOverlayStep + 1;

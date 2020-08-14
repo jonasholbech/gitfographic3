@@ -295,6 +295,30 @@ The new branch is identical to the master branch at that point in time (commit)`
         and merges into master`,
       },
     },
+    resetCheckoutScene: {
+      name: "Reset / Checkout",
+      opening: {
+        desc: `Let's take a deeper look at how resetting works
+        
+        And then, when we get that, its best friend: checkout`,
+      },
+      spreadOut: {
+        desc: `Remember what the three boxes were?
+        
+        Let's do a little roleplay here`,
+      },
+      filesAddedToProject: {
+        desc: `You have just started a new project and have created a few files`,
+      },
+      firstAddCommand: {
+        desc: `You "add" both files, moving them to the staging area.
+        
+        The files in your folder are unchanged!`,
+      },
+      firstCommitCommand: {
+        desc: `You commit the files on master.`,
+      },
+    },
   },
 };
 export default descriptions;
