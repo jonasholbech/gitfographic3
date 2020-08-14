@@ -7,7 +7,7 @@
 - git log
   - commit messages
 - when to branch
-- Rounding/initial thoughts
+- Rounding thoughts
   - It's all confusing BUT...
 
 * quiz
@@ -16,3 +16,5 @@
 - How it relates to brackets
 - github
 - github pages
+
+* clear progress (localStorage)
