@@ -13,8 +13,10 @@ const descriptions = {
         - give you an introduction to what it is,
         - why we use it
         - a vocabulary to make learning it easier
-
+ 
         Find the next button, and click it
+ 
+        Btw, for now, Safari is a total NO-GO...
         `,
       },
       navigation: {
@@ -24,6 +26,8 @@ const descriptions = {
         
         You can always jump between completed levels.
         
+        Please read all the texts carefully, I've spent a lot of time making them as short and to the point
+ 
         Go ahead and click next (this is the final time I'm telling you)`,
       },
       whyGit: {
