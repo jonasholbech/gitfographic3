@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   ArrowRightCircle,
   ArrowLeftCircle,
@@ -12,7 +12,19 @@ import Levels from "./Levels";
 export default function Nav(props) {
   const [state, send] = useContext(MachineContext);
   const [levelsOpen, setLevelsOpen] = useState(false);
-
+  useEffect(() => {
+    function handleKey(e) {
+      if (e.key === " " || e.key === "ArrowRight") {
+        e.preventDefault();
+        send("next");
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        send("prev");
+      }
+    }
+    window.addEventListener("keyup", handleKey);
+    return () => window.removeEventListener("keyup", handleKey);
+  });
   const scene = descriptions.states[state.toStrings()[0]].name;
 
   const classes = (levelsOpen ? "open" : "") + " navWrapper";
