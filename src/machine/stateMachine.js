@@ -11,20 +11,31 @@ import guards from "./parts/guards";
 import actions from "./parts/actions";
 
 import { initialState, unlockStorage } from "./config";
-//TODO: when switching scenes the text is misplaced, add initial setBox to all scenes
-//topBranchTransitions (in scenes) er nok den rigtige vej at gå, lidt for meget repetition her
-//TODO: if the storage.length (ish) does not match the above, storage is invalid", clear it? merge it?
+
 let storage = localStorage.getItem(unlockStorage);
+//still needs to be added to topbranchtransitions
+const scenes = {
+  introductionScene,
+  overviewScene,
+  gitignoreScene,
+  commitScene,
+  branchScene,
+  resetCheckoutScene,
+};
+const initialUnlocks = { ...scenes };
+
+Object.keys(initialUnlocks).map(function (key, index) {
+  initialUnlocks[key] = storage?.[key] || false;
+});
+initialUnlocks.introductionScene = true;
+//TODO: when switching scenes the text is misplaced, add initial setBox to all scenes
+//TODO: if the storage.length (ish) does not match the above, storage is invalid", clear it? merge it?
+
 if (!storage) {
   localStorage.setItem(
     unlockStorage,
     JSON.stringify({
-      introductionScene: true,
-      overviewScene: true,
-      gitignoreScene: true,
-      commitScene: true,
-      branchScene: true,
-      resetCheckoutScene: true,
+      ...initialUnlocks,
     })
   );
 }
@@ -42,24 +53,14 @@ const machine = {
       typewriter: false,
     },
     unlocks: {
-      introductionScene: storage?.introductionScene || true,
-      overviewScene: storage?.overviewScene || false,
-      gitignoreScene: storage?.gitignoreScene || false,
-      commitScene: storage?.commitScene || false,
-      branchScene: storage?.branchScene || false,
-      resetCheckoutScene: storage?.resetCheckoutScene || false,
+      ...initialUnlocks,
     },
     commitListStep: -1,
     branchOverlayStep: 0,
     cssFileStep: 0,
   },
   states: {
-    introductionScene,
-    overviewScene,
-    gitignoreScene,
-    commitScene,
-    branchScene,
-    resetCheckoutScene,
+    ...scenes,
   },
 };
 const flowMachine = Machine(machine, {
