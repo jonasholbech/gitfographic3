@@ -58,6 +58,7 @@ const machine = {
     commitListStep: -1,
     branchOverlayStep: 0,
     cssFileStep: 0,
+    htmlFileStep: 0,
   },
   states: {
     ...scenes,
