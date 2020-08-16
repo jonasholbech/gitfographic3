@@ -5,6 +5,8 @@ import AnnotatedArrow from "../AnnotatedArrow";
 import File from "../File";
 import DrawBox from "../DrawBox";
 
+import "../../../scss/Overview.scss";
+
 export default function Overview() {
   return (
     <g id="sceneOverview">

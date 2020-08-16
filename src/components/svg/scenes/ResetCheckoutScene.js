@@ -4,6 +4,8 @@ import { MachineContext } from "../../../machine/MachineProvider";
 import TextBox from "../TextBox";
 import FileWithText from "../FileWithText";
 
+import "../../../scss/ResetCheckout.scss";
+
 const cssTexts = [
   `body {
     background:black;

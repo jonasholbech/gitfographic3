@@ -4,6 +4,8 @@ import TextBox from "../TextBox";
 
 import File from "../File";
 
+import "../../../scss/Gitignore.scss";
+
 export default function Gitignore() {
   return (
     <g id="sceneGitignore">

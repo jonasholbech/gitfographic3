@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { MachineContext } from "../../../machine/MachineProvider";
 
 import CommitList from "../CommitList";
+import "../../../scss/Commits.scss";
 
 export default function Gitignore() {
   const [machineState] = useContext(MachineContext);

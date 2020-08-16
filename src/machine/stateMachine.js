@@ -12,7 +12,7 @@ import actions from "./parts/actions";
 
 import { initialState, unlockStorage } from "./config";
 
-let storage = localStorage.getItem(unlockStorage);
+let storage = JSON.parse(localStorage.getItem(unlockStorage));
 //still needs to be added to topbranchtransitions
 const scenes = {
   introductionScene,
