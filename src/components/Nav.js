@@ -13,17 +13,30 @@ export default function Nav(props) {
   const [state, send] = useContext(MachineContext);
   const [levelsOpen, setLevelsOpen] = useState(false);
   useEffect(() => {
-    function handleKey(e) {
+    function handleKeyUp(e) {
       if (e.key === " " || e.key === "ArrowRight") {
-        e.preventDefault();
         send("next");
       } else if (e.key === "ArrowLeft") {
-        e.preventDefault();
         send("prev");
+      } else if (e.key === "ArrowUp") {
+        setLevelsOpen(true);
+      } else if (e.key === "ArrowDown") {
+        setLevelsOpen(false);
       }
     }
-    window.addEventListener("keyup", handleKey);
-    return () => window.removeEventListener("keyup", handleKey);
+    function handleKeyDown(e) {
+      if (e.key === " ") {
+        e.preventDefault();
+      } else if (e.key === "ArrowDown" && levelsOpen) {
+        e.preventDefault();
+      }
+    }
+    window.addEventListener("keyup", handleKeyUp);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keyup", handleKeyUp);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   });
   const scene = descriptions.states[state.toStrings()[0]].name;
 

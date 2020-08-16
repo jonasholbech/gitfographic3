@@ -28,7 +28,9 @@ const descriptions = {
         
         Please read all the texts carefully, I've spent a lot of time making them short and to the point
  
-        Go ahead and click next (this is the final time I'm telling you)`,
+        Instead of clicking, you can use the arrow keys
+
+        Try it`,
       },
       whatIsGit: {
         desc: `What is Git?
