@@ -13,7 +13,7 @@ import actions from "./parts/actions";
 import { initialState, unlockStorage } from "./config";
 
 let storage = JSON.parse(localStorage.getItem(unlockStorage));
-//still needs to be added to topbranchtransitions
+//still needs to be added to topbranchtransitions and Levels.js
 const scenes = {
   introductionScene,
   overviewScene,
@@ -30,6 +30,8 @@ Object.keys(initialUnlocks).map(function (key, index) {
 initialUnlocks.introductionScene = true;
 //TODO: when switching scenes the text is misplaced, add initial setBox to all scenes
 //TODO: if the storage.length (ish) does not match the above, storage is invalid", clear it? merge it?
+//TODO: maybe descriptions should be in meta?
+//https://xstate.js.org/docs/guides/states.html#state-meta-data
 
 if (!storage) {
   localStorage.setItem(
@@ -39,8 +41,7 @@ if (!storage) {
     })
   );
 }
-//TODO: maybe descriptions should be in meta?
-//https://xstate.js.org/docs/guides/states.html#state-meta-data
+
 storage = JSON.parse(localStorage.getItem(unlockStorage));
 const machine = {
   id: "gitMachine",

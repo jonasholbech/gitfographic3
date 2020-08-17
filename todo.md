@@ -1,6 +1,8 @@
 # concepts not covered, maybe they should be
 
 - checkout
+  - commit list, DONE
+  - branch
 - working as a team
 - Working alone
 - HEAD
@@ -10,8 +12,6 @@
 - merging
 - Rounding thoughts
   - It's all confusing BUT...
-- resetting / checking out
--
 
 * quiz
 * Dictionary
