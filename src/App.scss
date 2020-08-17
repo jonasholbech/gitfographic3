@@ -14,11 +14,14 @@ svg {
 .App {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.App .navWrapper {
+  height: 80px;
 }
 svg#viz {
-  /*display: block;
-  width: 100vmin;
-  height: auto;*/
+  display: block;
   flex-grow: 1;
   width: 100%;
   height: 100%;
