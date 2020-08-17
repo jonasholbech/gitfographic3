@@ -5,6 +5,7 @@ body,
 html {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 svg {
@@ -12,18 +13,18 @@ svg {
   height: auto;
 }
 .App {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  flex-shrink: 1;
+  display: grid;
+  //display: flex;
+  //flex-direction: column;
+  height: 100vh;
+  grid-template-rows: 80px 1fr;
 }
 .App .navWrapper {
   height: 80px;
 }
 svg#viz {
   display: block;
-  flex-grow: 1;
-  width: 100%;
+  width: auto;
   height: 100%;
 }
 .DrawBox {
