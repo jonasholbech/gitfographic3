@@ -376,6 +376,22 @@ The new branch is identical to the master branch at that point in time (commit)`
         2. THEN use reset to go back to that point`,
       },
     },
+    workingAloneScene: {
+      name: "Working Alone",
+      opening: {
+        desc: `When working alone there are a few best practices you should remember`,
+      },
+      countLoop: {
+        desc: `This is my suggested workflow`,
+      },
+      ending: {
+        desc: `How you do it exactly is not the most important thing.
+        
+        And most companies have their own way. 
+        
+        But being consistent WILL help you in the long run.`,
+      },
+    },
   },
 };
 export default descriptions;

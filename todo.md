@@ -12,7 +12,8 @@
 - merging
 - Rounding thoughts
   - It's all confusing BUT...
-
+- setting up a project scene
+- 
 * quiz
 * Dictionary
 

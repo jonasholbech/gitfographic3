@@ -88,18 +88,19 @@ const resetCheckoutScene = {
     },
     ending: {
       on: {
-        next: {
-          /*{
-            target: "#resetCheckoutScene",
-            cond: { type: "hasUnlocked", scene: "resetCheckoutScene" },
+        next: [
+          {
+            target: "#workingAloneScene",
+            cond: { type: "hasUnlocked", scene: "workingAloneScene" },
           },
-          {*/
-          actions: [
-            { type: "fireworks", msg: "Reset/Checkout" },
-            send("resetCheckoutScene", { delay: 3000 }),
-          ],
-          //},
-        },
+          {
+            actions: [
+              { type: "fireworks", msg: "Reset/Checkout" },
+              { type: "unlockScene", scene: "workingAloneScene" },
+              send("workingAloneScene", { delay: 3000 }),
+            ],
+          },
+        ],
         prev: {
           target: "checkout",
         },

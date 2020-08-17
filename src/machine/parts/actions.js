@@ -89,6 +89,21 @@ const actions = {
   setCssFileStep: assign({
     cssFileStep: (ctx, evt, { action }) => action.value,
   }),
+  resetWorkingAloneCount: assign({
+    workingAloneCount: (ctx, evt) => {
+      return -1;
+    },
+  }),
+  incrementWorkingAloneCount: assign({
+    workingAloneCount: (ctx, evt) => {
+      return ctx.workingAloneCount + 1;
+    },
+  }),
+  decrementWorkingAloneCount: assign({
+    workingAloneCount: (ctx, evt) => {
+      return ctx.workingAloneCount - 1;
+    },
+  }),
   unlockScene: assign({
     unlocks: (ctx, evt, { action }) => {
       const unlocks = { ...ctx.unlocks };

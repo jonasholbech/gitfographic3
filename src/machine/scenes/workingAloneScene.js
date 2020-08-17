@@ -6,103 +6,67 @@ const workingAloneScene = {
   on: topBranchTransitions,
   states: {
     opening: {
-      entry: [{ type: "setBox", x: 100, y: 120 }],
+      entry: [{ type: "setBox", x: 100, y: 120 }, "resetWorkingAloneCount"],
       on: {
-        next: "spreadOut",
+        next: { target: "countLoop", actions: "incrementWorkingAloneCount" },
         prev: {
-          target: "#branchScene.developmentComplete",
+          target: "#resetCheckoutScene.ending",
           actions: ["setBranchOverlayEnd"],
         },
       },
     },
-    spreadOut: {
-      entry: [{ type: "setBox", x: 100, y: 120 }],
-      on: {
-        next: "filesAddedToProject",
-        prev: "opening",
+    countLoop: {
+      entry: { type: "setBox", x: 100, y: 40 },
+      meta: {
+        texts: [
+          "Start each day by pulling master",
+          "Find a feature to work on",
+          "and create a branch for that",
+          "commit and push often",
+          "... every time something is working",
+          "write meaningfull commit messages",
+          "once you're done with your feature, push it",
+          "then merge into master",
+          "try to do one feature per branch",
+          "repeat",
+        ],
       },
-    },
-    filesAddedToProject: {
-      entry: [{ type: "setBox", x: 250, y: 120 }],
       on: {
-        next: "firstAddCommand",
-        prev: "spreadOut",
-      },
-    },
-    firstAddCommand: {
-      entry: [{ type: "setBox", x: 600, y: 120 }],
-      on: { next: "firstCommitCommand", prev: "filesAddedToProject" },
-    },
-    firstCommitCommand: {
-      entry: [
-        { type: "setCssFileStep", value: 0 },
-        { type: "setBox", x: 600, y: 120 },
-      ],
-      on: { next: "firstChangeToFiles", prev: "firstAddCommand" },
-    },
-    firstChangeToFiles: {
-      entry: [
-        { type: "setCssFileStep", value: 1 },
-        { type: "setBox", x: 200, y: 120 },
-      ],
-      on: {
-        next: "secondAddCommand",
-        prev: "firstCommitCommand",
-      },
-    },
-    secondAddCommand: {
-      entry: { type: "setBox", x: 600, y: 220 },
-      on: {
-        next: "secondCommitCommand",
-        prev: "firstChangeToFiles",
-      },
-    },
-    secondCommitCommand: {
-      entry: { type: "setBox", x: 600, y: 220 },
-      on: {
-        next: "resetIntro",
-        prev: "secondAddCommand",
-      },
-    },
-    resetIntro: {
-      entry: { type: "setBox", x: 200, y: 120 },
-      on: { next: "reset", prev: "secondCommitCommand" },
-    },
-    reset: {
-      entry: { type: "setCssFileStep", value: 0 },
-      on: { next: "restored", prev: "resetIntro" },
-    },
-    restored: {
-      entry: { type: "setCssFileStep", value: 1 },
-      on: {
-        next: "checkout",
-        prev: "reset",
-      },
-    },
-    checkout: {
-      entry: { type: "setCssFileStep", value: 0 },
-      on: {
-        next: "ending",
-        prev: "restored",
+        next: [
+          {
+            target: "countLoop",
+            actions: "incrementWorkingAloneCount",
+            cond: "hasMoreTexts",
+          },
+          { target: "ending" },
+        ],
+        prev: [
+          {
+            target: "countLoop",
+            actions: "decrementWorkingAloneCount",
+            cond: { type: "greaterThanZero", prop: "workingAloneCount" },
+          },
+          { target: "opening" },
+        ],
       },
     },
     ending: {
+      entry: { type: "setBox", x: 100, y: 40 },
       on: {
-        next: {
-          /*{
-            target: "#resetCheckoutScene",
-            cond: { type: "hasUnlocked", scene: "resetCheckoutScene" },
+        next: [
+          {
+            target: "",
+            cond: { type: "hasUnlocked", scene: "workingAloneScene" },
           },
-          {*/
-          actions: [
-            { type: "fireworks", msg: "Reset/Checkout" },
-            send("resetCheckoutScene", { delay: 3000 }),
-          ],
-          //},
-        },
-        prev: {
-          target: "checkout",
-        },
+          {
+            actions: [
+              { type: "fireworks", msg: "Working Alone" },
+              { type: "unlockScene", scene: "" },
+              send("", { delay: 3000 }),
+            ],
+          },
+        ],
+        prev: "countLoop",
       },
     },
   },
