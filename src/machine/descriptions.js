@@ -202,7 +202,8 @@ Usually GitHub`,
     commitScene: {
       name: "Commits",
       beforeCommits: {
-        desc: `That was the overview. Let's take a look at what happens inside the repository`,
+        desc: `That was the overview. 
+        Let's take a look at what happens inside the repository`,
       },
       commits1: {
         desc: `Inside our repository, we have commits.

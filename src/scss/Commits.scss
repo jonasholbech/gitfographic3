@@ -18,6 +18,13 @@
     transition: all 1s;
     transform: scale(1);
   }
+  .TextBox {
+    opacity: 0.4;
+  }
+  #localrepository {
+    opacity: 1;
+  }
+
   &[data-substate="beforeCommits"] {
     #CommitList {
       opacity: 0;

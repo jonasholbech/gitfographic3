@@ -12,7 +12,7 @@ const commitScene = {
       always: "beforeCommits",
     },
     beforeCommits: {
-      entry: { type: "setBox", x: 50, y: 50 },
+      entry: { type: "setBox", x: 50, y: 100 },
       on: {
         next: {
           target: "commits1",
@@ -25,7 +25,7 @@ const commitScene = {
       },
     },
     commits1: {
-      entry: { type: "setBox", x: 50, y: 120 },
+      entry: { type: "setBox", x: 50, y: 180 },
       on: {
         next: {
           target: "commits2",
@@ -74,6 +74,7 @@ const commitScene = {
       },
     },
     commits5: {
+      entry: { type: "setBox", x: 50, y: 180 },
       on: {
         next: {
           target: "commits6",
@@ -86,7 +87,7 @@ const commitScene = {
       },
     },
     commits6: {
-      entry: { type: "setBox", x: 50, y: 120 },
+      entry: { type: "setBox", x: 300, y: 120 },
       on: {
         next: {
           target: "commits7",
