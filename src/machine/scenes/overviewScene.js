@@ -43,7 +43,7 @@ const overviewScene = {
       },
     },
     localRepository: {
-      entry: { type: "setBox", x: 140, y: 200 },
+      entry: { type: "setBox", x: 130, y: 200 },
       on: {
         next: "remoteRepository",
         prev: "stagingArea",
