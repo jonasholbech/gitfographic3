@@ -5,5 +5,6 @@ const topBranchTransitions = {
   commitScene: "commitScene",
   branchScene: "branchScene",
   resetCheckoutScene: "resetCheckoutScene",
+  workingAloneScene: "workingAloneScene",
 };
 export default topBranchTransitions;

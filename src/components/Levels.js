@@ -75,6 +75,17 @@ export default function Levels({ setLevelsOpen }) {
             : "Locked"}
         </button>
       </li>
+      <li>
+        <button
+          disabled={!state.context.unlocks.workingAloneScene}
+          onClick={() => {
+            setLevelsOpen(false);
+            send("workingAloneScene");
+          }}
+        >
+          {state.context.unlocks.workingAloneScene ? "Working Alone" : "Locked"}
+        </button>
+      </li>
       <li className="close">
         <button onClick={() => setLevelsOpen(false)}>X</button>
       </li>

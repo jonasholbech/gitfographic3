@@ -6,6 +6,7 @@ import gitignoreScene from "./scenes/gitignoreScene";
 import commitScene from "./scenes/commitScene";
 import branchScene from "./scenes/branchScene";
 import resetCheckoutScene from "./scenes/resetCheckoutScene";
+import workingAloneScene from "./scenes/workingAloneScene";
 
 import guards from "./parts/guards";
 import actions from "./parts/actions";
@@ -21,6 +22,7 @@ const scenes = {
   commitScene,
   branchScene,
   resetCheckoutScene,
+  workingAloneScene,
 };
 const initialUnlocks = { ...scenes };
 
