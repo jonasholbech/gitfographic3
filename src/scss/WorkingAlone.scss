@@ -1,3 +1,6 @@
 @import "partials/vars";
-[data-parentstate="overviewScene"] {
+[data-parentstate="workingAloneScene"] {
+  li {
+    font-size: 1rem;
+  }
 }

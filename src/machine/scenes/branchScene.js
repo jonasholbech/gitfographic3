@@ -6,14 +6,14 @@ const branchScene = {
   on: topBranchTransitions,
   states: {
     opening: {
-      entry: ["resetBranchOverlay", { type: "setBox", x: 100, y: 50 }],
+      entry: ["resetBranchOverlay", { type: "setBox", x: 100, y: 150 }],
       on: {
         next: { target: "master", actions: "incrementBranchOverlay" },
         prev: { target: "#commitScene.commits7", actions: "setCountEnd" },
       },
     },
     master: {
-      entry: [{ type: "setBox", x: 100, y: 0 }],
+      entry: [{ type: "setBox", x: 300, y: 200 }],
       on: {
         next: {
           target: "branchToFeature1",
@@ -23,12 +23,14 @@ const branchScene = {
       },
     },
     branchToFeature1: {
+      entry: [{ type: "setBox", x: 300, y: 200 }],
       on: {
         next: { target: "feature1", actions: "incrementBranchOverlay" },
         prev: { target: "master", actions: "decrementBranchOverlay" },
       },
     },
     feature1: {
+      entry: [{ type: "setBox", x: 400, y: 200 }],
       on: {
         next: {
           target: "feature1MergeToMaster",
@@ -41,7 +43,7 @@ const branchScene = {
       },
     },
     feature1MergeToMaster: {
-      entry: [{ type: "setBox", x: 100, y: 150 }],
+      entry: [{ type: "setBox", x: 100, y: 350 }],
       on: {
         next: {
           target: "branchToFeature2Cards",
@@ -78,7 +80,6 @@ const branchScene = {
       },
     },
     feature2MergeToMaster: {
-      entry: [{ type: "setBox", x: 100, y: 220 }],
       on: {
         next: {
           target: "branchToNav",

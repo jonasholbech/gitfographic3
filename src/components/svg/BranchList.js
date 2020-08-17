@@ -86,7 +86,7 @@ export default function BranchList({ x, y, step }) {
         fill="white"
         id="branchOverlay"
         x="90"
-        y="0"
+        y="120"
         width="100%"
         height="210"
       ></rect>

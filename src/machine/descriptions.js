@@ -393,7 +393,9 @@ The new branch is identical to the master branch at that point in time (commit)`
         
         And most companies have their own way. 
         
-        But being consistent WILL help you in the long run.`,
+        But being consistent WILL help you in the long run.
+        
+        As long as you remember to commit and push, your work is saved and can be restored`,
       },
     },
   },

@@ -16,6 +16,13 @@
   #branchOverlay {
     transition: all 2s;
   }
+  .TextBox {
+    opacity: 0.4;
+  }
+  #localrepository {
+    opacity: 1;
+  }
+
   //hide lines not completely covered by overlay
   &[data-substate="master"] {
     line[x1="125"] {

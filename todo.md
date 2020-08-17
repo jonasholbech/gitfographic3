@@ -13,7 +13,8 @@
 - Rounding thoughts
   - It's all confusing BUT...
 - setting up a project scene
-- 
+
+- reset from overview is correct but it should show the reset commit command instead
 * quiz
 * Dictionary
 
