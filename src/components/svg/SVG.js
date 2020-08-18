@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { MachineContext } from "../../machine/MachineProvider";
+import useGestures from "../../hooks/useGestures";
 
 import descriptions from "../../machine/descriptions";
 import Defs from "./Defs";
@@ -15,8 +16,7 @@ import WorkingAlone from "./scenes/WorkingAlone";
 
 //context kan nu tilgås og sættes fra react, så store skal dø, og udskiftes med context
 export default function SVG({ children }) {
-  const [machineState] = useContext(MachineContext);
-
+  const [machineState, send] = useContext(MachineContext);
   const [parent, child] = machineState.toStrings();
   const substate = (child && child.split(".")[1]) || "";
 
@@ -25,9 +25,25 @@ export default function SVG({ children }) {
   const text =
     descriptions.states[parent]?.[substate]?.desc ||
     descriptions.states[parent].desc;
+  const swipeContainerRef = useRef(null);
+  useGestures(swipeContainerRef, {
+    onSwipeLeft: (event) => {
+      //setImageRotation(event.angleDeg);
+      console.log(event);
+    },
+    onSwipeRight: (event) => {
+      //setImageRotation(1);
+      console.log(event);
+    },
+  });
 
   return (
-    <svg id="viz" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      id="viz"
+      ref={swipeContainerRef}
+      viewBox="0 0 1000 500"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <Defs />
       {machineState.matches("introductionScene") && <Introduction />}
       {machineState.matches("overviewScene") && <Overview />}
