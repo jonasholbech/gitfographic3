@@ -14,15 +14,12 @@
   - It's all confusing BUT...
 - setting up a project scene
 
-- reset from overview is correct but it should show the reset commit command instead
 * quiz
 * Dictionary
 
 - How it relates to brackets
 - github
 - github pages
-
-* clear progress (localStorage)
 
 # bugs and improvements
 
