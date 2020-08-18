@@ -24,8 +24,14 @@ svg {
 }
 svg#viz {
   display: block;
-  width: auto;
-  height: 100%;
+  width: 100%;
+  height: auto;
+}
+@media (min-aspect-ratio: 9/5) {
+  svg#viz {
+    width: auto;
+    height: 100%;
+  }
 }
 .DrawBox {
   fill: none;
