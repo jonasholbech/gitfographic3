@@ -15,14 +15,19 @@ export default function Nav(props) {
 
   useEffect(() => {
     function handleKeyUp(e) {
-      if (e.key === " " || e.key === "ArrowRight") {
-        send("next");
-      } else if (e.key === "ArrowLeft") {
-        send("prev");
-      } else if (e.key === "ArrowUp") {
-        setLevelsOpen(true);
-      } else if (e.key === "ArrowDown") {
-        setLevelsOpen(false);
+      if (
+        !document.body.dataset.fireworks ||
+        document.body.dataset.fireworks === "false"
+      ) {
+        if (e.key === " " || e.key === "ArrowRight") {
+          send("next");
+        } else if (e.key === "ArrowLeft") {
+          send("prev");
+        } else if (e.key === "ArrowUp") {
+          setLevelsOpen(true);
+        } else if (e.key === "ArrowDown") {
+          setLevelsOpen(false);
+        }
       }
     }
     function handleKeyDown(e) {
