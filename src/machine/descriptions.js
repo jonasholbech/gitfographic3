@@ -134,7 +134,7 @@ Usually GitHub`,
       },
       addCommandMoveFile3Back: {
         desc: `If you are not satisfied with your choices
-        you can "unstage" a file with the "reset" command`,
+        you can "unstage" a file again`,
       },
       commitCommand: {
         desc: `When you have staged all the files you need to
@@ -142,6 +142,11 @@ Usually GitHub`,
         - all your previous code
         - everything you've staged
         Once commited, the staged files becomes "unstaged"`,
+      },
+      resetCommand: {
+        desc: `If you ever mess up, or if you're feeling curious.
+        
+        You can "load a previous save game" by issuing the "reset" command`,
       },
       pushCommand: {
         desc: `To back up your work,

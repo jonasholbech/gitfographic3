@@ -13,6 +13,7 @@
 
   &[data-substate="first"] {
     .AnnotatedArrow,
+    .AnnotatedPolyArrow,
     .File {
       opacity: 0;
     }
@@ -34,6 +35,7 @@
   }
   &[data-substate="drawLocalBox"] {
     .AnnotatedArrow,
+    .AnnotatedPolyArrow,
     .File {
       opacity: 0;
     }
@@ -43,6 +45,7 @@
   }
   &[data-substate="drawRemoteBox"] {
     .AnnotatedArrow,
+    .AnnotatedPolyArrow,
     .File {
       opacity: 0;
     }
@@ -51,7 +54,8 @@
     }
   }
   &[data-substate="workingArea"] {
-    .AnnotatedArrow {
+    .AnnotatedArrow,
+    .AnnotatedPolyArrow {
       opacity: 0;
     }
     #workingAreaDrawBox {
@@ -59,7 +63,8 @@
     }
   }
   &[data-substate="stagingArea"] {
-    .AnnotatedArrow {
+    .AnnotatedArrow,
+    .AnnotatedPolyArrow {
       opacity: 0;
     }
     #stagingAreaDrawBox {
@@ -67,7 +72,8 @@
     }
   }
   &[data-substate="localRepository"] {
-    .AnnotatedArrow {
+    .AnnotatedArrow,
+    .AnnotatedPolyArrow {
       opacity: 0;
     }
     #localRepositoryDrawBox {
@@ -75,7 +81,8 @@
     }
   }
   &[data-substate="remoteRepository"] {
-    .AnnotatedArrow {
+    .AnnotatedArrow,
+    .AnnotatedPolyArrow {
       opacity: 0;
     }
     #remoteRepositoryDrawBox {
@@ -83,7 +90,7 @@
     }
   }
   &[data-substate="addCommand"] {
-    .AnnotatedArrow#resetCommand1,
+    #resetCommand1,
     .AnnotatedArrow#commitCommand,
     .AnnotatedArrow#pushCommand,
     .AnnotatedArrow#pullCommand {
@@ -95,7 +102,7 @@
     }
   }
   &[data-substate="addCommandMoveFile1"] {
-    .AnnotatedArrow#resetCommand1,
+    #resetCommand1,
     .AnnotatedArrow#commitCommand,
     .AnnotatedArrow#pushCommand,
     .AnnotatedArrow#pullCommand {
@@ -109,7 +116,7 @@
     }
   }
   &[data-substate="addCommandMoveFile2and3"] {
-    .AnnotatedArrow#resetCommand1,
+    #resetCommand1,
     .AnnotatedArrow#commitCommand,
     .AnnotatedArrow#pushCommand,
     .AnnotatedArrow#pullCommand {
@@ -129,6 +136,7 @@
     }
   }
   &[data-substate="addCommandMoveFile3Back"] {
+    #resetCommand1,
     .AnnotatedArrow#commitCommand,
     .AnnotatedArrow#pushCommand,
     .AnnotatedArrow#pullCommand {
@@ -148,6 +156,7 @@
     }
   }
   &[data-substate="commitCommand"] {
+    #resetCommand1,
     .AnnotatedArrow#pushCommand,
     .AnnotatedArrow#pullCommand {
       opacity: 0;
@@ -161,6 +170,16 @@
     .File#addCommandFile2 {
       transition: all $animationDuration * 3;
       transform: translate(550px, -20px) scale($fileScale);
+    }
+  }
+  &[data-substate="resetCommand"] {
+    .AnnotatedArrow#pushCommand,
+    .AnnotatedArrow#pullCommand {
+      opacity: 0;
+    }
+    .File#addCommandFile3,
+    .File#addCommandFile2 {
+      transform: translate(550px, -20px) scale(0.4);
     }
   }
   &[data-substate="pushCommand"] {

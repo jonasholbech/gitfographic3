@@ -85,8 +85,15 @@ const overviewScene = {
     commitCommand: {
       entry: { type: "setBox", x: 450, y: 100 },
       on: {
-        next: "pushCommand",
+        next: "resetCommand",
         prev: "addCommandMoveFile3Back",
+      },
+    },
+    resetCommand: {
+      entry: { type: "setBox", x: 150, y: 200 },
+      on: {
+        next: "pushCommand",
+        prev: "commitCommand",
       },
     },
     pushCommand: {
@@ -97,7 +104,7 @@ const overviewScene = {
       },
     },
     pullCommand: {
-      entry: { type: "setBox", x: 450, y: 100 },
+      entry: { type: "setBox", x: 450, y: 200 },
       on: {
         next: "takeAScreenshot",
         prev: "pushCommand",

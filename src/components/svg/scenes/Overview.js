@@ -4,7 +4,7 @@ import TextBox from "../TextBox";
 import AnnotatedArrow from "../AnnotatedArrow";
 import File from "../File";
 import DrawBox from "../DrawBox";
-
+import AnnotatedPolyArrow from "../AnnotatedPolyArrow";
 import "../../../scss/Overview.scss";
 
 export default function Overview() {
@@ -13,7 +13,6 @@ export default function Overview() {
       <DrawBox id="localDrawBox" x={0} y={0} width={660} height={100} />
       <DrawBox id="remoteDrawBox" x={740} y={0} width={170} height={100} />
       <DrawBox id="workingAreaDrawBox" x={0} y={0} width={170} height={300} />
-
       <DrawBox id="stagingAreaDrawBox" x={240} y={0} width={170} height={300} />
       <DrawBox
         id="localRepositoryDrawBox"
@@ -67,10 +66,8 @@ export default function Overview() {
       <File x={30} y={115} id="addCommandFile2" />
       <File x={40} y={130} id="addCommandFileLeftBehind3" />
       <File x={40} y={130} id="addCommandFile3" />
-
       <File x={110} y={115} id="pushCommandFile1" />
       <File x={120} y={130} id="pushCommandFile2" />
-
       <File x={90} y={115} id="pullCommandFile1" />
       <File x={90} y={130} id="pullCommandFile2" />
       <AnnotatedArrow
@@ -82,16 +79,13 @@ export default function Overview() {
         offsetY={-10}
         text="add"
       />
-      <AnnotatedArrow
-        id="resetCommand1"
-        x2={164}
-        y2={65}
-        x1={250}
-        y1={65}
-        offsetY={-10}
-        text="reset"
-      />
 
+      <AnnotatedPolyArrow
+        id="resetCommand1"
+        text="reset"
+        points="500,100 500,150 160,150 160,100"
+        offsetY={30}
+      />
       <AnnotatedArrow
         id="commitCommand"
         x1={400}
