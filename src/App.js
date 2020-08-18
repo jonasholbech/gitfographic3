@@ -6,6 +6,7 @@ import flowMachine from "./machine/stateMachine";
 
 import Nav from "./components/Nav";
 import SVG from "./components/svg/SVG";
+import FontSizePicker from "./components/FontSizePicker";
 
 import "./App.scss";
 //import "./scss/Introduction.scss";
@@ -22,6 +23,7 @@ function App() {
       <MachineProvider machineInstance={machineInstance}>
         <Nav />
         <SVG></SVG>
+        <FontSizePicker />
       </MachineProvider>
     </div>
   );
