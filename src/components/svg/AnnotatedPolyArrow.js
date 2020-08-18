@@ -14,6 +14,7 @@ export default function AnnotatedPolyArrow({
   first[1] = Number(first[1]);
   last[0] = Number(last[0]);
   last[1] = Number(last[1]);
+  //TODO: ? split into PolyArrow and Annotated polyarrow?
   return (
     <g className="AnnotatedPolyArrow" id={id}>
       <polyline
