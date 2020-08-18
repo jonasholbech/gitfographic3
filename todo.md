@@ -26,3 +26,7 @@
 - https://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject instead of description (with multiple text elements / tspan) - that could give me syntax highlighting, markdown, formatting etc
 
 - Levels.js kunne den blive skabt på bagrund af descriptions?
+
+- error boundaries now that i have code splittting
+- https://reactjs.org/docs/code-splitting.html#error-boundaries
+-
