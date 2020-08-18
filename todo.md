@@ -30,3 +30,5 @@
 - error boundaries now that i have code splittting
 - https://reactjs.org/docs/code-splitting.html#error-boundaries
 -
+- man kan trykke næste under fyrværkeri, ikke godt, kunne det løses med en guard?
+- eller et hook der frigiver kontrollen? useKeys
