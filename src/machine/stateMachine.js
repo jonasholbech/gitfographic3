@@ -7,6 +7,7 @@ import commitScene from "./scenes/commitScene";
 import branchScene from "./scenes/branchScene";
 import resetCheckoutScene from "./scenes/resetCheckoutScene";
 import workingAloneScene from "./scenes/workingAloneScene";
+import githubScene from "./scenes/githubScene";
 
 import guards from "./parts/guards";
 import actions from "./parts/actions";
@@ -22,6 +23,7 @@ const scenes = {
   branchScene,
   resetCheckoutScene,
   workingAloneScene,
+  githubScene,
 };
 const initialUnlocks = { ...scenes };
 

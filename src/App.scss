@@ -87,7 +87,7 @@ body[data-fireworks="true"] {
   flex-direction: row;
   flex-wrap: wrap;
   list-style-type: none;
-  justify-content: space-between;
+  justify-content: flex-start;
   position: absolute;
   transform: translateY(-200px);
   transition: all 0.2s ease-out;
@@ -95,6 +95,7 @@ body[data-fireworks="true"] {
   box-shadow: 0 4px 2px -2px gray;
   width: 100%;
   margin: 0;
+  gap: 1rem;
   padding: 1rem;
   background: white;
   button {
@@ -102,8 +103,8 @@ body[data-fireworks="true"] {
     background: black;
     color: white;
     border-radius: 2px;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
+    padding: 0.5rem 0.5rem;
+    font-size: 1rem;
     border: 1px solid white;
     cursor: pointer;
     &:hover:enabled {
@@ -112,9 +113,9 @@ body[data-fireworks="true"] {
       border: 1px solid #000;
     }
   }
-  /*.close {
+  .close {
     margin-left: auto;
-  }*/
+  }
   button[disabled] {
     cursor: unset;
   }

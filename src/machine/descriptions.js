@@ -403,6 +403,46 @@ The new branch is identical to the master branch at that point in time (commit)`
         As long as you remember to commit and push, your work is saved and can be restored`,
       },
     },
+    githubScene: {
+      name: "GitHub",
+      opening: {
+        desc: `The remote repository serves (at least) two purposes.
+        - it is our online backup
+        - it is how we share code with our team.
+        
+        Let's take a look at a few words we need to know`,
+      },
+      github: {
+        desc: `GitHub: 
+        
+        We have chosen GitHub (github.com) as our remote repository.
+        
+        It is the most widely used, and it's free.
+        
+        I just wanted you to know that alternatives exists`,
+      },
+      pushing: {
+        desc: `Push:
+        
+        Pushing was the act of "uploading" our code to the server`,
+      },
+      pulling: {
+        desc: `Pull:
+        
+        Pull was how we downloaded the code again`,
+      },
+      cloning: {
+        desc: `Cloning:
+        
+        That one we havn't covered yet.
+        Cloning means "take a remote repository and download the files"
+        
+        The diference between pulling and cloning is subtle.
+        
+        Cloning is something you do once (initially), 
+        whereas pulling is done whenever there are chnges in the remote`,
+      },
+    },
   },
 };
 export default descriptions;

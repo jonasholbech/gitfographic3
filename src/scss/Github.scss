@@ -1,0 +1,11 @@
+@import "partials/vars";
+[data-parentstate="githubScene"] {
+  .TextBox {
+    opacity: 0.4;
+  }
+  #remoterepository {
+    opacity: 1;
+  }
+  &[data-substate="opening"] {
+  }
+}

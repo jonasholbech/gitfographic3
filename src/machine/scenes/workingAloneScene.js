@@ -55,14 +55,14 @@ const workingAloneScene = {
       on: {
         next: [
           {
-            target: "",
-            cond: { type: "hasUnlocked", scene: "workingAloneScene" },
+            target: "#githubScene",
+            cond: { type: "hasUnlocked", scene: "githubScene" },
           },
           {
             actions: [
               { type: "fireworks", msg: "Working Alone" },
-              { type: "unlockScene", scene: "" },
-              send("", { delay: 3000 }),
+              { type: "unlockScene", scene: "githubScene" },
+              send("githubScene", { delay: 3000 }),
             ],
           },
         ],

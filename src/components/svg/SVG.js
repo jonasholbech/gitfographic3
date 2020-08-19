@@ -21,6 +21,7 @@ const ResetCheckoutScene = React.lazy(() =>
   import("./scenes/ResetCheckoutScene")
 );
 const WorkingAlone = React.lazy(() => import("./scenes/WorkingAlone"));
+const Github = React.lazy(() => import("./scenes/Github"));
 
 export default function SVG({ children }) {
   const [machineState] = useContext(MachineContext);
@@ -66,6 +67,11 @@ export default function SVG({ children }) {
       {machineState.matches("workingAloneScene") && (
         <Suspense fallback={<div>Loading...</div>}>
           <WorkingAlone />
+        </Suspense>
+      )}
+      {machineState.matches("githubScene") && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <Github />
         </Suspense>
       )}
 
