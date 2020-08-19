@@ -13,6 +13,9 @@
 - Rounding thoughts
   - It's all confusing BUT...
 - setting up a project scene
+- clone
+- fork
+-
 
 * quiz
 * Dictionary
@@ -30,3 +33,4 @@
 - error boundaries now that i have code splittting
 - https://reactjs.org/docs/code-splitting.html#error-boundaries
 -
+- router and pretty urls
