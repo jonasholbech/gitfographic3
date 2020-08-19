@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/gitfographic3/static/css/main.0742ee64.chunk.css",
-    "main.js": "/gitfographic3/static/js/main.b2f65a81.chunk.js",
-    "main.js.map": "/gitfographic3/static/js/main.b2f65a81.chunk.js.map",
+    "main.js": "/gitfographic3/static/js/main.2299aab5.chunk.js",
+    "main.js.map": "/gitfographic3/static/js/main.2299aab5.chunk.js.map",
     "runtime-main.js": "/gitfographic3/static/js/runtime-main.61a39300.js",
     "runtime-main.js.map": "/gitfographic3/static/js/runtime-main.61a39300.js.map",
     "static/js/2.8eeeba1b.chunk.js": "/gitfographic3/static/js/2.8eeeba1b.chunk.js",
@@ -29,7 +29,7 @@
     "static/js/9.24be3f0d.chunk.js": "/gitfographic3/static/js/9.24be3f0d.chunk.js",
     "static/js/9.24be3f0d.chunk.js.map": "/gitfographic3/static/js/9.24be3f0d.chunk.js.map",
     "index.html": "/gitfographic3/index.html",
-    "precache-manifest.6ec7310f4743826c65068f605c06c76a.js": "/gitfographic3/precache-manifest.6ec7310f4743826c65068f605c06c76a.js",
+    "precache-manifest.b9a531750377980a51356d9539731571.js": "/gitfographic3/precache-manifest.b9a531750377980a51356d9539731571.js",
     "service-worker.js": "/gitfographic3/service-worker.js",
     "static/css/3.b5d9aa10.chunk.css.map": "/gitfographic3/static/css/3.b5d9aa10.chunk.css.map",
     "static/css/4.0526ef62.chunk.css.map": "/gitfographic3/static/css/4.0526ef62.chunk.css.map",
@@ -45,6 +45,6 @@
     "static/js/runtime-main.61a39300.js",
     "static/js/2.8eeeba1b.chunk.js",
     "static/css/main.0742ee64.chunk.css",
-    "static/js/main.b2f65a81.chunk.js"
+    "static/js/main.2299aab5.chunk.js"
   ]
 }
