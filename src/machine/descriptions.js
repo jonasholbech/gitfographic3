@@ -440,7 +440,7 @@ The new branch is identical to the master branch at that point in time (commit)`
         The diference between pulling and cloning is subtle.
         
         Cloning is something you do once (initially), 
-        whereas pulling is done whenever there are chnges in the remote`,
+        whereas pulling is done whenever there are changes in the remote`,
       },
     },
   },
