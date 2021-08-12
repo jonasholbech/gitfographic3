@@ -26,7 +26,7 @@ export default function BranchList({ x, y, step }) {
         <line x1="575" y1="50" x2="625" y2="0" />
         <g data-branch="master">
           <text x="20" y="0" textAnchor="middle" dominantBaseline="central">
-            master
+            main
           </text>
           <circle cx={75} cy={0} r={10} className="drawCircle" />
 

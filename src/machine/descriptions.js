@@ -253,27 +253,27 @@ This provides us with a lot of benefits:
 - We can "merge" two timelines, combining the work of developer A & B`,
       },
       master: {
-        desc: `Our initial branch is called "master"
-      (although it will at some point be renamed to main or similar).
+        desc: `Our initial branch is called "main"
+      (it used to be master, you will see that a lot).
 
-      Master should always contain working code`,
+      Main should always contain working code`,
       },
       branchToFeature1: {
-        desc: `From the master branch, we can "branch out",
+        desc: `From the main branch, we can "branch out",
 or "snap a branch" as it's sometimes called.
 
-The new branch is identical to the master branch at that point in time (commit)`,
+The new branch is identical to the main branch at that point in time (commit)`,
       },
       feature1: {
         desc: `We now have two separate timelines.
-        Master, that holds our working code.
+        Main, that holds our working code.
         And feature1.`,
       },
       feature1MergeToMaster: {
         desc: `When development is complete on the feature1 branch,
-        we can "merge" the code from feature1 into master.
+        we can "merge" the code from feature1 into main.
         
-        Now master and feature1 are identical`,
+        Now main and feature1 are identical`,
       },
       branchToFeature2Cards: {
         desc: `Let's add another developer. 
@@ -282,28 +282,28 @@ The new branch is identical to the master branch at that point in time (commit)`
       feature2Cards: {
         desc: `Three timelines!
         
-        Master is unchanged. 
+        Main is unchanged. 
         And developer A & B can work on their own features, 
         without risking destroying each other's work!
         
         Bloody Awesome`,
       },
       feature2MergeToMaster: {
-        desc: `Dev A is done, and merges his code into master.
+        desc: `Dev A is done, and merges his code into main.
         
         Dev B is not done yet, and continues to work on her own branch`,
       },
       branchToNav: {
-        desc: `Dev A get's a nother task and immediately branches out.
+        desc: `Dev A get's another task and immediately branches out.
         
         Dev B, well, her task is a bit bigger`,
       },
       developmentComplete: {
         desc: `The nav branch turns out to be a dead end, 
-        and it's never merged into master.
+        and it's never merged into main.
         
         In the meantime, developer B finishes her work
-        and merges into master`,
+        and merges into main`,
       },
     },
     resetCheckoutScene: {
