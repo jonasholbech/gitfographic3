@@ -19,7 +19,7 @@ const workingAloneScene = {
       entry: { type: "setBox", x: 100, y: 40 },
       meta: {
         texts: [
-          "Start each day by pulling master",
+          "Start each day by pulling main",
           "Find a feature to work on",
           "and create a branch for that",
           "try to do one feature per branch",
@@ -27,7 +27,7 @@ const workingAloneScene = {
           "... every time something is working",
           "write meaningfull commit messages",
           "once you're done with your feature, push it",
-          "then merge into master",
+          "then merge into main",
           "repeat the process",
         ],
       },

@@ -327,7 +327,7 @@ The new branch is identical to the main branch at that point in time (commit)`,
         The files in your folder are unchanged!`,
       },
       firstCommitCommand: {
-        desc: `You commit the files on master.
+        desc: `You commit the files on main.
         
         And your working copy? unchanged`,
       },
@@ -369,9 +369,9 @@ The new branch is identical to the main branch at that point in time (commit)`,
         
         That's why we have the "checkout" command.
         
-        Checkout changes out working files so we can see what we had at that time.
+        Checkout changes our working files so we can see what we had at that time.
         
-        But it does NOT change out timeline (we're going back in time?)`,
+        But it does NOT change out timeline (we're just looking back in time?)`,
       },
       checkout: {
         desc: `See your files and your timeline? 
