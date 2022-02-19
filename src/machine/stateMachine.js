@@ -46,8 +46,9 @@ localStorage.setItem(
   })
 );
 //}
-
+//TODO: WTF why did I need this line?
 storage = JSON.parse(localStorage.getItem(unlockStorage));
+
 const machine = {
   id: "gitMachine",
   strict: true,
