@@ -1,1 +1,0 @@
-{"version":3,"sources":["Github.scss"],"names":[],"mappings":"AAAA,wCAGI,UAAY,CACb,iDAEC,SAAU","file":"7.cdd0f53d.chunk.css","sourcesContent":["@import \"partials/vars\";\n[data-parentstate=\"githubScene\"] {\n  .TextBox {\n    opacity: 0.4;\n  }\n  #remoterepository {\n    opacity: 1;\n  }\n  &[data-substate=\"opening\"] {\n  }\n}\n"]}
