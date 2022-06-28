@@ -1,0 +1,138 @@
+@import "partials/vars";
+[data-parentstate="revertScene"] {
+  svg {
+    background-color: lightblue;
+  }
+}
+/* .FileWithText {
+  font-size: 0.5rem;
+  p {
+    margin-bottom: 0;
+  }
+  pre {
+    margin-top: 0;
+    border: 1px solid #000;
+    padding: 0.5rem;
+  }
+}
+circle.commit {
+  fill: white;
+  stroke: #000;
+  transition: all 1s;
+}
+line {
+  stroke: #000;
+}
+[data-parentstate="resetCheckoutScene"] {
+  #workingcopy,
+  #stagingarea,
+  #localrepository {
+    transition: all 0.5s;
+  }
+  &[data-substate="opening"] {
+    #workingcopy {
+      transform: translateX(-40px);
+    }
+    #stagingarea {
+      transform: translateX(-175px);
+    }
+    #localrepository {
+      transform: translateX(-300px);
+    }
+    [id^="cssFile"],
+    [id^="htmlFile"],
+    .commit,
+    line {
+      opacity: 0;
+    }
+  }
+  &[data-substate="spreadOut"] {
+    [id^="cssFile"],
+    [id^="htmlFile"],
+    .commit,
+    line {
+      opacity: 0;
+    }
+  }
+  &[data-substate="filesAddedToProject"] {
+    .commit,
+    line {
+      opacity: 0;
+    }
+  }
+  &[data-substate="firstAddCommand"] {
+    #cssFile2 {
+      transition: all 2s;
+      transform: translate(380px, 0);
+    }
+    #htmlFile2 {
+      transition: all 2s;
+      transform: translate(380px, 0px);
+    }
+    .commit {
+      transform: translate(-380px, 30px);
+      opacity: 0;
+    }
+    line {
+      opacity: 0;
+    }
+  }
+  &[data-substate="firstCommitCommand"] {
+    line {
+      opacity: 0;
+    }
+    .commit {
+      transform: translate(-380px, 30px);
+      opacity: 0;
+    }
+    .commit[data-number="1"] {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+  &[data-substate="firstChangeToFiles"] {
+    line {
+      opacity: 0;
+    }
+    .commit[data-number="2"] {
+      transform: translate(-380px, 30px);
+      opacity: 0;
+    }
+  }
+  &[data-substate="secondAddCommand"] {
+    line {
+      opacity: 0;
+    }
+    .commit[data-number="2"] {
+      transform: translate(-380px, 30px);
+      opacity: 0;
+    }
+    #cssFile2 {
+      transition: all 2s;
+      transform: translate(380px, 0);
+    }
+  }
+  &[data-substate="secondCommitCommand"] {
+    .commit {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+  &[data-substate="reset"] {
+    .commit[data-number="2"],
+    line {
+      transition: all 1s;
+      opacity: 0;
+    }
+  }
+  &[data-substate="checkout"] {
+    .commit[data-number="2"],
+    line {
+      transition: all 1s;
+      opacity: 0.5;
+      stroke-dasharray: 4px;
+    }
+  }
+}
+//250, 500
+ */

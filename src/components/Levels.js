@@ -77,6 +77,17 @@ export default function Levels({ setLevelsOpen }) {
       </li>
       <li>
         <button
+          disabled={!state.context.unlocks.revertScene}
+          onClick={() => {
+            setLevelsOpen(false);
+            send("revertScene");
+          }}
+        >
+          {state.context.unlocks.revertScene ? "Revert" : "Locked"}
+        </button>
+      </li>
+      <li>
+        <button
           disabled={!state.context.unlocks.workingAloneScene}
           onClick={() => {
             setLevelsOpen(false);

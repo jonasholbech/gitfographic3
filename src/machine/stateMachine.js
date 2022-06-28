@@ -6,6 +6,7 @@ import gitignoreScene from "./scenes/gitignoreScene";
 import commitScene from "./scenes/commitScene";
 import branchScene from "./scenes/branchScene";
 import resetCheckoutScene from "./scenes/resetCheckoutScene";
+import revertScene from "./scenes/revertScene";
 import workingAloneScene from "./scenes/workingAloneScene";
 import githubScene from "./scenes/githubScene";
 
@@ -22,6 +23,7 @@ const scenes = {
   commitScene,
   branchScene,
   resetCheckoutScene,
+  revertScene,
   workingAloneScene,
   githubScene,
 };

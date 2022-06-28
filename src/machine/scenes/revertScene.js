@@ -1,7 +1,7 @@
 import { send } from "xstate";
 import topBranchTransitions from "./topBranchTransitions";
-const resetCheckoutScene = {
-  id: "resetCheckoutScene",
+const revertScene = {
+  id: "revertScene",
   initial: "opening",
   on: topBranchTransitions,
   states: {
@@ -90,14 +90,14 @@ const resetCheckoutScene = {
       on: {
         next: [
           {
-            target: "#revertScene",
-            cond: { type: "hasUnlocked", scene: "revertScene" },
+            target: "#workingAloneScene",
+            cond: { type: "hasUnlocked", scene: "workingAloneScene" },
           },
           {
             actions: [
               { type: "fireworks", msg: "Reset/Checkout" },
-              { type: "unlockScene", scene: "revertScene" },
-              send("revertScene", { delay: 3000 }),
+              { type: "unlockScene", scene: "workingAloneScene" },
+              send("workingAloneScene", { delay: 3000 }),
             ],
           },
         ],
@@ -108,4 +108,4 @@ const resetCheckoutScene = {
     },
   },
 };
-export default resetCheckoutScene;
+export default revertScene;

@@ -389,6 +389,12 @@ The new branch is identical to the main branch at that point in time (commit)`,
         2. THEN use reset to go back to that point`,
       },
     },
+    revertScene: {
+      name: "Revert",
+      opening: {
+        desc: `Let's take a deeper look at how revert works`,
+      },
+    },
     workingAloneScene: {
       name: "Working Alone",
       opening: {

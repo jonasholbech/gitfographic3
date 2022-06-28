@@ -20,6 +20,7 @@ const Branches = React.lazy(() => import("./scenes/Branches"));
 const ResetCheckoutScene = React.lazy(() =>
   import("./scenes/ResetCheckoutScene")
 );
+const RevertScene = React.lazy(() => import("./scenes/RevertScene"));
 const WorkingAlone = React.lazy(() => import("./scenes/WorkingAlone"));
 const Github = React.lazy(() => import("./scenes/Github"));
 
@@ -62,6 +63,11 @@ export default function SVG({ children }) {
       {machineState.matches("resetCheckoutScene") && (
         <Suspense fallback={<div>Loading...</div>}>
           <ResetCheckoutScene />
+        </Suspense>
+      )}
+      {machineState.matches("revertScene") && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <RevertScene />
         </Suspense>
       )}
       {machineState.matches("workingAloneScene") && (
