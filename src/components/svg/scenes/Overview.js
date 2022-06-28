@@ -86,6 +86,12 @@ export default function Overview() {
         points="500,100 500,150 160,150 160,100"
         offsetY={30}
       />
+      <AnnotatedPolyArrow
+        id="revertCommand1"
+        text="revert"
+        points="510,100 510,200 150,200 150,100"
+        offsetY={90}
+      />
       <AnnotatedArrow
         id="commitCommand"
         x1={400}

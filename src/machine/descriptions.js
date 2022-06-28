@@ -143,6 +143,10 @@ Usually GitHub`,
         - everything you've staged
         Once commited, the staged files becomes "unstaged"`,
       },
+      revertCommand: {
+        desc: `Or you can undo changes introduced in a 
+        specific commit with "revert"`,
+      },
       resetCommand: {
         desc: `If you ever mess up, or if you're feeling curious.
         
@@ -434,7 +438,7 @@ The new branch is identical to the main branch at that point in time (commit)`,
       cloning: {
         desc: `Cloning:
         
-        That one we havn't covered yet.
+        That one we haven't covered yet.
         Cloning means "take a remote repository and download the files"
         
         The diference between pulling and cloning is subtle.

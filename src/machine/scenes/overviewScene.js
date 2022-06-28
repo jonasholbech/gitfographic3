@@ -92,8 +92,15 @@ const overviewScene = {
     resetCommand: {
       entry: { type: "setBox", x: 150, y: 200 },
       on: {
-        next: "pushCommand",
+        next: "revertCommand",
         prev: "commitCommand",
+      },
+    },
+    revertCommand: {
+      entry: { type: "setBox", x: 150, y: 250 },
+      on: {
+        next: "pushCommand",
+        prev: "resetCommand",
       },
     },
     pushCommand: {

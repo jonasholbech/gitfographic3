@@ -91,6 +91,7 @@
   }
   &[data-substate="addCommand"] {
     #resetCommand1,
+    #revertCommand1,
     .AnnotatedArrow#commitCommand,
     .AnnotatedArrow#pushCommand,
     .AnnotatedArrow#pullCommand {
@@ -103,6 +104,7 @@
   }
   &[data-substate="addCommandMoveFile1"] {
     #resetCommand1,
+    #revertCommand1,
     .AnnotatedArrow#commitCommand,
     .AnnotatedArrow#pushCommand,
     .AnnotatedArrow#pullCommand {
@@ -117,6 +119,7 @@
   }
   &[data-substate="addCommandMoveFile2and3"] {
     #resetCommand1,
+    #revertCommand1,
     .AnnotatedArrow#commitCommand,
     .AnnotatedArrow#pushCommand,
     .AnnotatedArrow#pullCommand {
@@ -137,6 +140,7 @@
   }
   &[data-substate="addCommandMoveFile3Back"] {
     #resetCommand1,
+    #revertCommand1,
     .AnnotatedArrow#commitCommand,
     .AnnotatedArrow#pushCommand,
     .AnnotatedArrow#pullCommand {
@@ -157,6 +161,7 @@
   }
   &[data-substate="commitCommand"] {
     #resetCommand1,
+    #revertCommand1,
     .AnnotatedArrow#pushCommand,
     .AnnotatedArrow#pullCommand {
       opacity: 0;
@@ -173,6 +178,17 @@
     }
   }
   &[data-substate="resetCommand"] {
+    #revertCommand1,
+    .AnnotatedArrow#pushCommand,
+    .AnnotatedArrow#pullCommand {
+      opacity: 0;
+    }
+    .File#addCommandFile3,
+    .File#addCommandFile2 {
+      transform: translate(550px, -20px) scale(0.4);
+    }
+  }
+  &[data-substate="revertCommand"] {
     .AnnotatedArrow#pushCommand,
     .AnnotatedArrow#pullCommand {
       opacity: 0;
