@@ -10,8 +10,8 @@ const revertScene = {
       on: {
         next: "commit1File",
         prev: {
-          /* target: "#branchScene.developmentComplete",
-          actions: ["setBranchOverlayEnd"], */
+          target: "#resetCheckoutScene.ending",
+          actions: [{ type: "setBox", x: 200, y: 120 }],
         },
       },
     },
@@ -55,54 +55,9 @@ const revertScene = {
     },
     commit4File: {
       entry: [],
-      on: { next: "firstChangeToFiles", prev: "taskExplained5" },
+      on: { next: "ending", prev: "taskExplained5" },
     },
-    firstChangeToFiles: {
-      entry: [
-        { type: "setCssFileStep", value: 1 },
-        { type: "setBox", x: 200, y: 120 },
-      ],
-      on: {
-        next: "secondAddCommand",
-        prev: "taskExplained1",
-      },
-    },
-    secondAddCommand: {
-      entry: { type: "setBox", x: 600, y: 220 },
-      on: {
-        next: "secondCommitCommand",
-        prev: "firstChangeToFiles",
-      },
-    },
-    secondCommitCommand: {
-      entry: { type: "setBox", x: 600, y: 220 },
-      on: {
-        next: "resetIntro",
-        prev: "secondAddCommand",
-      },
-    },
-    resetIntro: {
-      entry: { type: "setBox", x: 200, y: 120 },
-      on: { next: "reset", prev: "secondCommitCommand" },
-    },
-    reset: {
-      entry: { type: "setCssFileStep", value: 0 },
-      on: { next: "restored", prev: "resetIntro" },
-    },
-    restored: {
-      entry: { type: "setCssFileStep", value: 1 },
-      on: {
-        next: "checkout",
-        prev: "reset",
-      },
-    },
-    checkout: {
-      entry: { type: "setCssFileStep", value: 0 },
-      on: {
-        next: "ending",
-        prev: "restored",
-      },
-    },
+
     ending: {
       on: {
         next: [
@@ -112,14 +67,14 @@ const revertScene = {
           },
           {
             actions: [
-              { type: "fireworks", msg: "Reset/Checkout" },
+              { type: "fireworks", msg: "Revert" },
               { type: "unlockScene", scene: "workingAloneScene" },
               send("workingAloneScene", { delay: 3000 }),
             ],
           },
         ],
         prev: {
-          target: "checkout",
+          target: "commit4File",
         },
       },
     },

@@ -10,7 +10,7 @@ const workingAloneScene = {
       on: {
         next: { target: "countLoop", actions: "incrementWorkingAloneCount" },
         prev: {
-          target: "#resetCheckoutScene.ending",
+          target: "#revertScene.ending",
           actions: ["setBranchOverlayEnd"],
         },
       },
