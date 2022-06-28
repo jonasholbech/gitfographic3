@@ -6,39 +6,56 @@ const revertScene = {
   on: topBranchTransitions,
   states: {
     opening: {
-      entry: [{ type: "setBox", x: 100, y: 120 }],
+      entry: [],
       on: {
-        next: "spreadOut",
+        next: "commit1File",
         prev: {
-          target: "#branchScene.developmentComplete",
-          actions: ["setBranchOverlayEnd"],
+          /* target: "#branchScene.developmentComplete",
+          actions: ["setBranchOverlayEnd"], */
         },
       },
     },
-    spreadOut: {
-      entry: [{ type: "setBox", x: 100, y: 120 }],
+    commit1File: {
+      entry: [],
       on: {
-        next: "filesAddedToProject",
+        next: "commit2File",
         prev: "opening",
       },
     },
-    filesAddedToProject: {
-      entry: [{ type: "setBox", x: 250, y: 120 }],
+    commit2File: {
+      entry: [],
       on: {
-        next: "firstAddCommand",
-        prev: "spreadOut",
+        next: "commit3File",
+        prev: "commit1File",
       },
     },
-    firstAddCommand: {
-      entry: [{ type: "setBox", x: 600, y: 120 }],
-      on: { next: "firstCommitCommand", prev: "filesAddedToProject" },
+    commit3File: {
+      entry: [],
+      on: { next: "taskExplained1", prev: "commit2File" },
     },
-    firstCommitCommand: {
-      entry: [
-        { type: "setCssFileStep", value: 0 },
-        { type: "setBox", x: 600, y: 120 },
-      ],
-      on: { next: "firstChangeToFiles", prev: "firstAddCommand" },
+    taskExplained1: {
+      entry: [{ type: "setBox", x: 200, y: 220 }],
+      on: { next: "taskExplained2", prev: "commit3File" },
+    },
+    taskExplained2: {
+      entry: [],
+      on: { next: "taskExplained3", prev: "taskExplained1" },
+    },
+    taskExplained3: {
+      entry: [],
+      on: { next: "taskExplained4", prev: "taskExplained2" },
+    },
+    taskExplained4: {
+      entry: [],
+      on: { next: "taskExplained5", prev: "taskExplained3" },
+    },
+    taskExplained5: {
+      entry: [{ type: "setBox", x: 200, y: 220 }],
+      on: { next: "commit4File", prev: "taskExplained4" },
+    },
+    commit4File: {
+      entry: [],
+      on: { next: "firstChangeToFiles", prev: "taskExplained5" },
     },
     firstChangeToFiles: {
       entry: [
@@ -47,7 +64,7 @@ const revertScene = {
       ],
       on: {
         next: "secondAddCommand",
-        prev: "firstCommitCommand",
+        prev: "taskExplained1",
       },
     },
     secondAddCommand: {

@@ -3,85 +3,80 @@ import { MachineContext } from "../../../machine/MachineProvider";
 
 import TextBox from "../TextBox";
 import FileWithText from "../FileWithText";
+import Commit from "../Commit";
 
 import "../../../scss/Revert.scss";
 
 const cssTexts = [
   `body {
-    background:black;
+    background: black;
 }`,
   `body {
-    background:black;
+    background: black;
+    color: white;
+}`,
+  `body {
+    background: black;
+    color: white;
 }
 p {
     font-weight: bold
 }`,
+  `body {
+  background: black;
+}
+p {
+  font-weight: bold
+}`,
 ];
-const htmlTexts = [`<p>Hi mom</p>`, `<p>Hi mom</p>`];
+
 export default function RevertScene() {
   const [machineState] = useContext(MachineContext);
-  console.log(machineState);
   return (
     <g id="sceneRevert">
-      <TextBox
-        id="workingcopy"
-        width={150}
-        height={80}
+      <FileWithText
         x={50}
-        y={10}
-        text="Working Copy"
-      />
-      <TextBox
-        id="stagingarea"
-        width={150}
-        height={80}
-        x={425}
-        y={10}
-        text="Staging Area"
-      />
-      <TextBox
-        id="localrepository"
-        width={150}
-        height={80}
-        x={800}
-        y={10}
-        text="Local Repository"
-      />
-      <FileWithText
-        x={60}
         y={100}
-        id="cssFile"
+        id="commit1File"
         name="style.css"
         texts={cssTexts}
-        count={machineState.context.cssFileStep}
+        count={0}
+        data-number={1}
       />
       <FileWithText
-        x={60}
-        y={200}
-        id="htmlFile"
-        name="index.html"
-        texts={htmlTexts}
-        count={machineState.context.htmlFileStep}
-      />
-      <FileWithText
-        x={60}
+        x={180}
         y={100}
-        id="cssFile2"
+        id="commit2File"
         name="style.css"
         texts={cssTexts}
-        count={machineState.context.cssFileStep}
+        count={1}
+        data-number={2}
       />
       <FileWithText
-        x={60}
-        y={200}
-        id="htmlFile2"
-        name="index.html"
-        texts={htmlTexts}
-        count={machineState.context.htmlFileStep}
+        x={310}
+        y={100}
+        id="commit3File"
+        name="style.css"
+        texts={cssTexts}
+        count={2}
+        data-number={3}
       />
-      <line x1="875" y1="120" x2="875" y2="170" />
-      <circle className="commit" data-number="1" cx={875} cy={120} r={10} />
-      <circle className="commit" data-number="2" cx={875} cy={170} r={10} />
+      <FileWithText
+        x={440}
+        y={100}
+        id="commmit4File"
+        name="style.css"
+        texts={cssTexts}
+        count={3}
+        data-number={4}
+      />
+      <line data-number="2" x1="100" y1="100" x2="230" y2="100" />
+      <line data-number="3" x1="230" y1="100" x2="360" y2="100" />
+      <line data-number="4" x1="360" y1="100" x2="490" y2="100" />
+      <Commit number="1" cx={100} cy={100} r={10} letter="A" />
+      <Commit number="2" cx={230} cy={100} r={10} letter="B" />
+      <Commit number="3" cx={360} cy={100} r={10} letter="C" />
+      <Commit number="4" cx={490} cy={100} r={10} letter="D" />
     </g>
   );
 }

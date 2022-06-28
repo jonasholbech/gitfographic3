@@ -1,8 +1,78 @@
 @import "partials/vars";
-[data-parentstate="revertScene"] {
-  svg {
-    background-color: lightblue;
+.FileWithText {
+  font-size: 0.5rem;
+  p {
+    margin-bottom: 0;
   }
+  pre {
+    margin-top: 0;
+    border: 1px solid #000;
+    padding: 0.5rem;
+  }
+}
+circle.commit {
+  fill: white;
+  stroke: #000;
+  transition: all 1s;
+}
+
+line {
+  stroke: black;
+  stroke-dasharray: 130px;
+  stroke-dashoffset: 130px;
+  transition: stroke-dashoffset 1s;
+}
+text {
+  transition: all 0.2s 1s;
+}
+.stroke0 {
+  stroke-dashoffset: 0;
+}
+[data-parentstate="revertScene"] {
+  g[id="sceneRevert"] > * {
+    opacity: 0;
+  }
+  &[data-substate^="commit"] {
+    [data-number="1"] {
+      opacity: 1;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  &[data-substate="commit2File"],
+  &[data-substate="commit3File"] {
+    [data-number="2"] {
+      opacity: 1;
+      stroke-dashoffset: 0;
+    }
+  }
+  &[data-substate="commit3File"] {
+    [data-number="3"] {
+      opacity: 1;
+      stroke-dashoffset: 0;
+    }
+  }
+  &[data-substate^="taskExplained"] {
+    [data-number="1"],
+    [data-number="2"],
+    [data-number="3"] {
+      opacity: 1;
+      stroke-dashoffset: 0;
+    }
+  }
+  &[data-substate="commit4File"] {
+    [data-number="1"],
+    [data-number="2"],
+    [data-number="3"],
+    [data-number="4"] {
+      opacity: 1;
+      stroke-dashoffset: 0;
+    }
+  }
+  /*[data-number="4"] {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }*/
 }
 /* .FileWithText {
   font-size: 0.5rem;

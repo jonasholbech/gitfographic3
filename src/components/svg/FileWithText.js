@@ -1,6 +1,14 @@
 import React from "react";
 
-export default function FileWithText({ x, y, id, name, texts, count }) {
+export default function FileWithText({
+  x,
+  y,
+  id,
+  name,
+  texts,
+  count,
+  ...rest
+}) {
   return (
     <foreignObject
       className="FileWithText"
@@ -9,6 +17,7 @@ export default function FileWithText({ x, y, id, name, texts, count }) {
       y={y}
       width="120"
       height="160"
+      {...rest}
     >
       <div xmlns="http://www.w3.org/1999/xhtml">
         <p>{name}</p>

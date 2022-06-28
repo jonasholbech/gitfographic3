@@ -392,8 +392,38 @@ The new branch is identical to the main branch at that point in time (commit)`,
     revertScene: {
       name: "Revert",
       opening: {
+        desc: `Let's take a deeper look at how revert works.
+        Let's do a few commits`,
+      },
+      taskExplained1: {
+        desc: `Take a look at commit B.
+        Commit B adds one line of code.`,
+      },
+      taskExplained2: {
+        desc: `We can undo all things done by a commit
+        using the revert command.`,
+      },
+      taskExplained3: {
+        desc: `It works by adding a new commit at the end
+        that reverses (reverts) the changes done in that commit`,
+      },
+      taskExplained4: {
+        desc: `So, unlike reset, nothing is destroyed / removed`,
+      },
+      taskExplained5: {
+        desc: `So, let's revert commit B, leaving us with:
+        Everything from C minus whatever B added`,
+      },
+      /* ,
+      commit1: {
+        desc: `etLet's do a few commits`,
+      },
+      commit2: {
         desc: `Let's take a deeper look at how revert works`,
       },
+      commit3: {
+        desc: `Let's take a deeper look at how revert works`,
+      }, */
     },
     workingAloneScene: {
       name: "Working Alone",
