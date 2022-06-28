@@ -1,0 +1,1 @@
+{"version":3,"sources":["WorkingAlone.scss"],"names":[],"mappings":"AAEE,wCACE,cAAA","file":"10.fa6f1863.chunk.css","sourcesContent":["@import \"partials/vars\";\n[data-parentstate=\"workingAloneScene\"] {\n  li {\n    font-size: 1rem;\n  }\n}\n"]}
