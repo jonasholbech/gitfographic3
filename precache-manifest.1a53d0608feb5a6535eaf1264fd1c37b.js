@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5654082f39773c4a502efb6fe691eb2d",
+    "revision": "8dd481907a25f55ab25087442150c16f",
     "url": "/gitfographic3/index.html"
   },
   {
@@ -36,7 +36,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/gitfographic3/static/css/9.3ad6abbb.chunk.css"
   },
   {
-    "revision": "23ed274db31867a0008b",
+    "revision": "55b502c9ae9702f77f6c",
     "url": "/gitfographic3/static/css/main.22d1553a.chunk.css"
   },
   {
@@ -80,8 +80,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/gitfographic3/static/js/9.8327a320.chunk.js"
   },
   {
-    "revision": "23ed274db31867a0008b",
-    "url": "/gitfographic3/static/js/main.94f40db1.chunk.js"
+    "revision": "55b502c9ae9702f77f6c",
+    "url": "/gitfographic3/static/js/main.99f397a7.chunk.js"
   },
   {
     "revision": "ec7a0c7899b661e5e5e1",
