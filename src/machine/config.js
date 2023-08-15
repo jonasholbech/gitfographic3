@@ -1,2 +1,2 @@
-export const initialState = "revertScene"; //"introductionScene";
+export const initialState = "introductionScene"; //"revertScene"; //
 export const unlockStorage = "gitUnlock";
